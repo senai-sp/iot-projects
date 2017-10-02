@@ -7,7 +7,7 @@ void setup(){
 }
 
 void loop(){
-  btnState = digitalRead(Botao); 
+  btnState = digitalRead(btn); 
 
   digitalWrite(LED_BUILTIN, btnState);
 }

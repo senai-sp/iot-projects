@@ -8,4 +8,4 @@ Neste projeto vamos testar o nosso arduino com um pushbutton.
 
 ## Código
 
-- [pushbutton.ino](./pushbutton.ino)
+- [pushbutton.ino](src/pushbutton.ino)
