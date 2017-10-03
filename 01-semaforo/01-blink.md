@@ -4,7 +4,12 @@ Este será nosso primeiro projeto com o Arduino, nele, vamos ver como o Arduino 
 
 Veremos também a estrutura de um programa do Arduino e como nosso código pode interagir com o mundo externo.
 
-## Desenho
+## Esquema
+
+![Protoboard](src/blink/sketch.png)
+
+
+![Esquema elétrico](src/blink/schem.png)
 
 ## Conceitos
 
@@ -14,3 +19,4 @@ Veremos também a estrutura de um programa do Arduino e como nosso código pode 
 - Constantes da biblioteca Arduino
 - Leitura de um sketch representativo
 - Leitura de representação de um simples circuito elétrico
+- Utilização de `Serial.write()` para debug logging
