@@ -19,4 +19,3 @@ Veremos também a estrutura de um programa do Arduino e como nosso código pode 
 - Constantes da biblioteca Arduino
 - Leitura de um sketch representativo
 - Leitura de representação de um simples circuito elétrico
-- Utilização de `Serial.write()` para debug logging
