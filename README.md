@@ -16,8 +16,11 @@ Em adição à placa compatível com [Arduino UNO](https://store.arduino.cc/usa/
 - [Arduino IDE](https://www.arduino.cc/en/Main/Software) - Editor oficial de código para o Arduino
 - [Packet Tracer](https://www.netacad.com/courses/packet-tracer-download/) - Simulador didático de redes de computadores
 
-### Links externos
+## Links externos
+
+Esta lista contém links para softwares web adicionais e material de consulta.
 
 - [Trello](http://trello.com) - Gestão de projetos colaborativa e produtividade
 - [Tinkercad](https://www.tinkercad.com/) - Editor e simulador de circuitos elétricos e eletrônicos
 - ['Colinha' de Git](https://www.git-tower.com/blog/git-cheat-sheet-pt) - Comandos principais do Git
+- [Documentação oficial Arduino](https://www.arduino.cc/en/Main/Docs) - Documentação oficial contendo deste instalação da IDE até referência da linguagem de programação e bibliotecas
