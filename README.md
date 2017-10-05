@@ -11,6 +11,13 @@ Em adição à placa compatível com [Arduino UNO](https://store.arduino.cc/usa/
 
 ## Softwares
 
-- [Git](https://git-scm.com/)
-- [Fritzing](http://fritzing.org/)
-- [Arduino IDE](https://www.arduino.cc/en/Main/Software)
+- [Git](https://git-scm.com/) - Sistema de controle de versão
+- [Fritzing](http://fritzing.org/) - Design de circuitos para IoT
+- [Arduino IDE](https://www.arduino.cc/en/Main/Software) - Editor oficial de código para o Arduino
+- [Packet Tracer](https://www.netacad.com/courses/packet-tracer-download/) - Simulador didático de redes de computadores
+
+### Links externos
+
+- [Trello](http://trello.com) - Gestão de projetos colaborativa e produtividade
+- [Tinkercad](https://www.tinkercad.com/) - Editor e simulador de circuitos elétricos e eletrônicos
+- ['Colinha' de Git](https://www.git-tower.com/blog/git-cheat-sheet-pt) - Comandos principais do Git
