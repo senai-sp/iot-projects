@@ -8,14 +8,14 @@ Também veremos o Buzzer, um componente que consegue emitir sons ao receber impu
 
 ### Protoboard
 
-![protoboard](./src/cores/sketch_bb.png)
+![protoboard](./src/temperaturas/sketch_bb.png)
 
 ### Elétrico
 
-![eletrico](./src/cores/sketch_schem.png)
+![eletrico](./src/temperaturas/sketch_schem.png)
 
 ## Conceitos
-- Estrutura `case`
+- Estrutura `for`
 - Função `tone()`
 - Comunicação com a IDE via Serial
 - Declaração de funções
