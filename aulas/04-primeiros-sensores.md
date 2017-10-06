@@ -49,6 +49,9 @@ Para cada sensor, aprender como ler valores deles numa escala correta.
 - [Documentação para equação do sensor de temperatura](https://playground.arduino.cc/Main/LM35HigherResolution)
 - [Descrição dos pinos analógicos do arduino](https://www.arduino.cc/en/Tutorial/AnalogInputPins)
 
+Detalhe do datasheet LM35:
+![datasheet](./src/primeiros-sensores/lm35.png)
+
 ## Conceitos
 - Leitura de dados analógicos
 - Potenciômetro
