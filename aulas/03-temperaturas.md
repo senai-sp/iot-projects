@@ -26,8 +26,8 @@ um LED acenda, uma frequencia diferente toque no Buzzer e uma mensagem seja reto
 
 ## Código
 
-- [Primeiro passo lendo nomes das cores](./src/temperaturas/temperaturas-nomes.ino)
-- [Regular](./src/temperaturas/temperaturas.ino)
+- [Exercício completo](./src/temperaturas/temperaturas.ino)
+- [Leitura dos nomes das cores](./src/temperaturas/temperaturas-nomes.ino)
 - [Utilizando evento SerialEvent()](./src/temperaturas/temperaturas-event.ino)
 
 ## Conceitos
