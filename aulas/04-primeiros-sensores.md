@@ -39,9 +39,9 @@ Para cada sensor, aprender como ler valores deles numa escala correta.
 
 ## Código
 
-- Exemplo potenciometro
-- Exemplo temperatura (LM35)
-- Exemplo sensor de luz
+- [Exemplo potenciometro](./src/primeiros-sensores/potenciometro.ino)
+- [Exemplo temperatura (LM35)](./src/primeiros-sensores/temperatura.ino)
+- [Exemplo sensor de luz](./src/primeiros-sensores/luz.ino)
 
 ## Links
 
