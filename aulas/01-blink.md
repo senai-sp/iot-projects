@@ -11,6 +11,11 @@ Veremos também a estrutura de um programa do Arduino e como nosso código pode 
 
 ![Esquema elétrico](src/blink/schem.png)
 
+
+## Código
+
+- [Exercício completo](src/blink/blink.ino)
+
 ## Conceitos
 
 - Estrutura de um arduino sketch
