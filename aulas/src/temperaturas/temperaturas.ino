@@ -50,7 +50,7 @@ void ligarSomente(int pino) {
 
 // Veja https://www.arduino.cc/en/Tutorial/ToneMelody para uma lista de valores para notas musicais
 void tocarSom(int tom) {
-  const int duracao = 5;
+  const int duracao = 500;
   tone(buzzer, tom, duracao);
 }
 
