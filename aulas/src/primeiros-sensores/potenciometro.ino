@@ -10,7 +10,7 @@ void setup()
 void loop()
 {
   // O valor retornado por analogRead esta no intervalo entre 0-1023
-  intleitura = analogRead(pot);
+  int leitura = analogRead(pot);
   Serial.println(leitura);
   delay(100);
 }
