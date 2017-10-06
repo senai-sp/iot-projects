@@ -9,9 +9,9 @@ Também veremos o Buzzer, um componente que consegue emitir sons ao receber impu
 Em cima do esquema abaixo, fazer com que com base no valor digitado pelo usuário,
 um LED acenda, uma frequencia diferente toque no Buzzer e uma mensagem seja retornada pela comunicação serial:
 
-- < 30 graus: frequencia `4186`, mensagem: **Temperatura normal**
-- < 40 graus: frequencia `523`, mensagem: **Temperatura perigosa**
-- além de 40: frequencia `131`, mensagem: **Temperatura crítica**
+- < 30 graus: frequencia `4186`, mensagem: **Temperatura normal**, acender somente led VERDE
+- < 40 graus: frequencia `523`, mensagem: **Temperatura perigosa**, acender somente led AMARELO
+- além de 40: frequencia `131`, mensagem: **Temperatura crítica**, acender somente led VERMELHO
 
 ## Desenho
 
