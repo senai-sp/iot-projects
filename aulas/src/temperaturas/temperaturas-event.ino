@@ -22,21 +22,21 @@ void setup()
 
 void processarTemperatura(int temperatura) {
   if(temperatura < 30) {
-    ligarLed(green);
+    ligarSomente(green);
     tocarSom(4186);
     Serial.println("Temperatura normal");
   } else if (temperatura < 40) {
-    ligarLed(yellow);
+    ligarSomente(yellow);
     tocarSom(523);
     Serial.println("Temperatura perigosa");
   } else {
-    ligarLed(red);
+    ligarSomente(red);
     tocarSom(131);
     Serial.println("Temperatura critica");
   }
 }
 
-void ligarLed(int pino) {
+void ligarSomente(int pino) {
   for(int i = 11; i <= 13; i++) {
     digitalWrite(i, LOW);
   }

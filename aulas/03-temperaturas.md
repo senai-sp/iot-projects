@@ -23,6 +23,13 @@ um LED acenda, uma frequencia diferente toque no Buzzer e uma mensagem seja reto
 
 ![eletrico](./src/temperaturas/sketch_schem.png)
 
+
+## Código
+
+- [Primeiro passo lendo nomes das cores](./src/temperaturas/temperaturas-nomes.ino)
+- [Regular](./src/temperaturas/temperaturas.ino)
+- [Utilizando evento SerialEvent()](./src/temperaturas/temperaturas-event.ino)
+
 ## Conceitos
 - Estrutura `for`
 - Função `tone()`
