@@ -15,7 +15,10 @@ void loop()
   float milliVolts = map(leitura, 0, 1023, 0, 5000);
   Serial.print(milliVolts); Serial.println(" milliVolts");
   
-  milliVolts -= 500;
+  // para o sensor TMP36 disponível no TinkerCAD, precisamos subtrair mais 500mV
+  // pois segundo sua documentação ele já tem essa tensão como valor mínimo
+  // i.e. ele varia de 500mV a 5V
+  // milliVolts -= 500;
   
   // dividimos o valor por 10 para saber a temperatura,
   // pois segundo o datasheet do sensor, ele varia 10mV por 1ºC
