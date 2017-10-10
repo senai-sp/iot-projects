@@ -51,7 +51,7 @@
       console.error(err);
       document.getElementById('container-error').textContent = err;
     }
-
+    
     function limparErro() {
       document.getElementById('container-error').textContent = '';
     }
@@ -107,6 +107,26 @@
       // prevenir que pagina atualize
       return false;
     }
+    
+    function adicionarTemperatura() {
+      const url = document.getElementById('input-url').value;
+      let temperatura = document.getElementById('test-temp').value;
+      // converter para numero:
+      temperatura = +temperatura;
+      fetch(url, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          temp: temperatura,
+          id: 42
+        })
+      })
+      .then(console.log)
+      .then(atualizarGrafico);
+      return false;
+    }
   </script>
 </head>
 <body>
@@ -114,6 +134,11 @@
     <p>
       <label for="input-url">Servidor:</label>
       <input type="text" id="input-url" value="http://127.0.0.1:8080">
+    </p>
+    <p>
+      <label for="test-temp">Temperatura Teste:</label>
+      <input type="number" id="test-temp" value="25">
+      <button onclick="return adicionarTemperatura()">Adicionar</button>
     </p>
     <p>
       <input type="submit" value="Atualizar"></button>
