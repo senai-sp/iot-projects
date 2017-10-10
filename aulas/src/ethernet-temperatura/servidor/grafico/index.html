@@ -48,7 +48,12 @@
     };
     
     function registrarErro(err) {
+      console.error(err);
       document.getElementById('container-error').textContent = err;
+    }
+
+    function limparErro() {
+      document.getElementById('container-error').textContent = '';
     }
     
     function corAleatoria() {
@@ -86,11 +91,11 @@
       
       // mostrar temperaturas como pontos
       chartConfig.data.datasets = datasets;
-      console.dir(datasets);
       const contextoCanvas = document.getElementById("grafico").getContext("2d");
       new Chart(contextoCanvas, chartConfig);
     } 
     function atualizarGrafico() {
+      limparErro();
       // baixar dados 
       const url = document.getElementById('input-url').value;
       fetch(url).then(function(res) {
