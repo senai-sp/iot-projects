@@ -7,12 +7,16 @@ const bodyParser = require('body-parser');
 // module para logging de eventos para console
 const morgan = require('morgan');
 
+const cors = require('cors');
+
 const app = express();
 
 // configuração para deixar respostas legíveis
 app.set('json spaces', 2);
 
 app.use(morgan('combined'));
+
+app.use(cors());
 
 // biblioteca para o servidor 
 app.use(bodyParser.json());
@@ -40,11 +44,14 @@ function cadastrarTemperatura(registro) {
   console.info(`Temperatura cadastrada para kit ${registro.id}`);
 }
 
+app.use('/grafico', express.static('grafico'));
+
 app.post('/', function(req, res) {
   let dados = req.body;
   cadastrarTemperatura(dados);
   res.status(200).end();
 });
+
 
 app.get('/:id', function(req, res) {
   // recuperar coleção para kit
