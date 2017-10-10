@@ -2,6 +2,8 @@
 
 Nesta aula iremos utilizar um shield Ethernet baseado no chip ENC28J60.
 
+Utilizaremos o mesmo sensor de temperatura visto na aula passada e vamos enviar 
+
 ## Cenário proposto
 
 - Utilizar o sensor de temperatura em um Sketch Arduino.
@@ -17,6 +19,8 @@ Nesta aula iremos utilizar um shield Ethernet baseado no chip ENC28J60.
   "temp": 25 // Celcius
 }
 ```
+
+Recomendamos utilizar a biblioteca [ArduinoJson](https://github.com/bblanchon/ArduinoJson/) para manipular esse tipo de dados.
 
 ## Pinos para o ENC28J60
 
@@ -35,16 +39,14 @@ Nesta aula iremos utilizar um shield Ethernet baseado no chip ENC28J60.
 2. Vá em `Sketch > Incluir Biblioteca > UIPEthernet`
 3. Remova referências à biblioteca `Ethernet.h` do Arduino caso necessário
 
+## Servidor para gráfico de temperaturas
 
-## Instalando NodeJS portátil no Windows
+Nesta aula utilizaremos a plataforma [NodeJS](http://nodejs.org/) como um simples servidor http para cadastrarmos as temperaturas lidas de nossos sensores.
 
-1. Baixar o binário (Windows Binary) de https://nodejs.org/en/download/current/
-2. Download the last zip version of npm from http://nodejs.org/dist/npm
-4. Unpack the zip inside the node folder
-5. Download the last tgz version of npm from http://nodejs.org/dist/npm
-6. Open the tgz file and unpack only the file **bin/npm** (without extension) directly on the node folder.
-7. Add the the node folder and the packages/bin folder to PATH
-8. On a command prompt execute ```npm install -g npm``` to update npm to the latest version
+O código exemplo do servidor está disponível neste [link](src/ethernet-temperaturas/servidor).
+### Utilizando NodeJS portátil no Windows
+
+O NodeJS está disponível num pacote portátil através de seu download binário (Windows Binary) de https://nodejs.org/en/download/current/.
 
 ## Links
 
@@ -52,3 +54,4 @@ Nesta aula iremos utilizar um shield Ethernet baseado no chip ENC28J60.
 - [Repositório para biblioteca UIPEthernet](https://github.com/UIPEthernet/UIPEthernet)
 - [Formato JSON](http://www.json.org/json-pt.html)
 - [Exemplos de HTTP GET e POST](http://playground.arduino.cc/Code/WebClient)
+- [Site oficial do NodeJS](https://nodejs.org/)
