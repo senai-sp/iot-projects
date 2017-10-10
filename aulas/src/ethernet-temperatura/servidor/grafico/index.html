@@ -22,29 +22,29 @@
           intersect: true
         },
         scales: {
-					xAxes: [{
-						type: "time",
-						display: true,
-						scaleLabel: {
-							display: true,
-							labelString: 'Tempo'
-						},
+          xAxes: [{
+            type: "time",
+            display: true,
+            scaleLabel: {
+              display: true,
+              labelString: 'Tempo'
+            },
             ticks: {
               major: {
                 fontStyle: "bold",
                 fontColor: "#FF0000"
               }
             }
-					}],
-					yAxes: [{
-						display: true,
-						scaleLabel: {
-							display: true,
-							labelString: 'Temperatura'
-						}
-					}]
-				}
-			}
+          }],
+          yAxes: [{
+            display: true,
+            scaleLabel: {
+              display: true,
+              labelString: 'Temperatura'
+            }
+          }]
+        }
+      }
     };
     
     function registrarErro(err) {
@@ -79,8 +79,7 @@
           datasets.push({
             label: idKit,
             data: temperaturas,
-            borderColor: cor,
-            backgroundColor: cor
+            borderColor: cor
           });
         }
       }
