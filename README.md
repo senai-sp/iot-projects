@@ -2,6 +2,7 @@
 
 Este repositório contém os projetos realizados no curso de Internet Of Things durante o primeiro [SENAI Code Experience](https://codexp.sp.senai.br/).
 
+Para ver o material das aulas, entre na pasta [aulas](./aulas/)
 
 ## Material didático inicial
 
