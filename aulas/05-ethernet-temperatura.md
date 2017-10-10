@@ -48,6 +48,19 @@ O código exemplo do servidor está disponível neste [link](src/ethernet-temper
 
 O NodeJS está disponível num pacote portátil através de seu download binário (Windows Binary) de https://nodejs.org/en/download/current/.
 
+### Formato da mensagem HTTP POST
+A seguir está um exemplo da mensagem completa que deve ser enviada ao servidor.
+
+```
+POST / HTTP 1.1
+Host: 127.0.0.1
+Content-Type: application/json
+Content-Length: 22
+Connection: close
+
+{"temp": 25, "id": 42}
+```
+
 ## Links
 
 - [Documentação para API Ethernet do Arduino](https://www.arduino.cc/en/Reference/Ethernet)
