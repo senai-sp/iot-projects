@@ -45,7 +45,7 @@ Nesta aula utilizaremos um simples servidor HTTP para cadastrarmos as temperatur
 
 Esse servidor foi escrito em cima da plataforma [NodeJS](https://nodejs.org) e seu código está disponível [neste link](src/ethernet-temperatura/servidor).
 
-Para acessar o servidor entre em http://[endereço da maquina]:8080/gráfico.
+Para acessar o servidor entre em http://[endereço da maquina]:8080/grafico.
 
 ### Utilizando NodeJS portátil no Windows
 
