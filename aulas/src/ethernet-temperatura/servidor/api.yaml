@@ -1,0 +1,89 @@
+swagger: "2.0"
+info:
+  description: "Servidor de exemplo para armazenamento de temperaturas"
+  version: "1.0.0"
+  license:
+    name: "MIT"
+tags:
+- name: "temperaturas"
+  description: "Coleção de dados de temperaturas para cada Kit Arduino"
+schemes:
+- "http"
+paths:
+  /:
+    post:
+      tags:
+      - "temperaturas"
+      summary: "Adiciona nova temperatura à coleção"
+      operationId: "addTemp"
+      consumes:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "Objeto de temperatura"
+        required: true
+        schema:
+          $ref: "#/definitions/TemperaturaEnvio"
+      responses:
+        400:
+          description: "Dados inválidos"
+    get:
+      tags:
+      - "temperaturas"
+      summary: "Lista todas as temperaturas disponíveis"
+      produces:
+      - "application/json"
+      responses:
+        200:
+          description: "Lista de temperaturas"
+          schema:
+            type: "object"
+            additionalProperties:
+              $ref: "#/definitions/TempTimestamp"
+  /{kitId}:
+    get:
+      tags:
+      - "temperaturas"
+      summary: "Lista temperaturas de um unico kit"
+      operationId: "getTempsByKitId"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "kitId"
+        in: "path"
+        description: "ID do kit arduino"
+        required: true
+        type: "integer"
+        format: "int64"
+      responses:
+        200:
+          description: "Lista de temperaturas para o Kit"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/TempTimestamp"
+        404:
+          description: "Nenhuma temperatura encontrada para o kit fornecido"
+definitions:
+  TemperaturaEnvio:
+    type: "object"
+    required:
+    - "id"
+    - "temp"
+    properties:
+      id:
+        type: "integer"
+        example: 42
+      temp:
+        type: "number"
+        example: 25.90
+  TempTimestamp:
+    type: "object"
+    properties:
+      temp:
+        type: "number"
+        example: 25.90
+      timestamp:
+        type: "integer"
+        example: 1507746140269

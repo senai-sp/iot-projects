@@ -20,6 +20,9 @@ Utilizaremos o mesmo sensor de temperatura visto na aula passada e vamos enviar
 }
 ```
 
+- O exemplo em EthernetClient é um bom início para seu programa
+- Veja o [código do servidor](src/ethernet-temperatura/servidor) para documentação
+
 Recomendamos utilizar a biblioteca [ArduinoJson](https://github.com/bblanchon/ArduinoJson/) para manipular esse tipo de dados.
 
 ## Pinos para o ENC28J60
