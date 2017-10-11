@@ -41,9 +41,12 @@ Recomendamos utilizar a biblioteca [ArduinoJson](https://github.com/bblanchon/Ar
 
 ## Servidor para gráfico de temperaturas
 
-Nesta aula utilizaremos a plataforma [NodeJS](http://nodejs.org/) como um simples servidor http para cadastrarmos as temperaturas lidas de nossos sensores.
+Nesta aula utilizaremos um simples servidor HTTP para cadastrarmos as temperaturas lidas de nossos sensores.
 
-O código exemplo do servidor está disponível neste [link](src/ethernet-temperaturas/servidor).
+Esse servidor foi escrito em cima da plataforma [NodeJS](https://nodejs.org) e seu código está disponível [neste link](src/ethernet-temperatura/servidor).
+
+Para acessar o servidor entre em http://[endereço da maquina]:8080/gráfico.
+
 ### Utilizando NodeJS portátil no Windows
 
 O NodeJS está disponível num pacote portátil através de seu download binário (Windows Binary) de https://nodejs.org/en/download/current/.
@@ -66,6 +69,8 @@ Explicação das seções:
 - **POST**: método do protocolo HTTP, normalmente significa a inserção de um novo recurso. Em nosso exercício, estamos 'inserindo' um novo registro de temperatura
 - **'/'**: Endereço relativo à raiz do servidor web, neste caso estamos manipulando um recurso situado à própria raiz do servidor.
 - **HTTP 1.1**: identificação do protocolo e sua versão
+- **Host**: identificação do servidor
+- **127.0.0.1**: endereço do servidor, substituir pelo real. Este valor é um valor especial para a própria máquina local.
 - **Content-Type**: [Cabeçalho](https://en.wikipedia.org/wiki/List_of_HTTP_header_fields) que identifica o tipo de conteúdo enviado na requisição, pode ser texto, dados binários (exemplo: upload de imagem), etc.
 - **application/json**: identificação do conteúdo como sendo uma mensagem contendo JSON
 - **Content-Length: 22**: Cabeçalho que informa ao servidor o tamanho em bytes do conteúdo da mensagem, 22 refere-se ao tamanho do texto JSON
