@@ -20,7 +20,7 @@ Utilizaremos o mesmo sensor de temperatura visto na aula passada e vamos enviar
 }
 ```
 
-- O exemplo em EthernetClient é um bom início para seu programa
+- O exemplo em `Exemplos > Ethernet > WebClient` é um bom início para seu programa, ele deve rodar somente substituindo a biblioteca conforme a seção [Utilizando a biblioteca UIPEthernet](#Utilizando-a-biblioteca-UIPEthernet)
 - Veja o [código do servidor](src/ethernet-temperatura/servidor) para documentação
 
 Recomendamos utilizar a biblioteca [ArduinoJson](https://github.com/bblanchon/ArduinoJson/) para manipular esse tipo de dados.
