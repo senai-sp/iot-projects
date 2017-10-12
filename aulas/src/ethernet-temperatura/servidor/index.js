@@ -14,12 +14,13 @@ const app = express();
 // configuração para deixar respostas legíveis
 app.set('json spaces', 2);
 
-app.use(morgan('combined'));
 
 app.use(cors());
 
 // biblioteca para o servidor 
 app.use(bodyParser.json());
+
+app.use('/grafico', express.static('grafico'));
 
 /**
  * Formato das temperaturas:
@@ -44,7 +45,7 @@ function cadastrarTemperatura(registro) {
   console.info(`Temperatura cadastrada para kit ${registro.id}`);
 }
 
-app.use('/grafico', express.static('grafico'));
+app.use(morgan('combined'));
 
 app.post('/', function(req, res) {
   let dados = req.body;
