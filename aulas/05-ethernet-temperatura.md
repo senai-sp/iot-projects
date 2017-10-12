@@ -82,6 +82,7 @@ Explicação das seções:
 
 ## Links
 
+- [Fundamentos do HTTP](https://developer.mozilla.org/pt-BR/docs/Web/HTTP/Basico_sobre_HTTP)
 - [Documentação para API Ethernet do Arduino](https://www.arduino.cc/en/Reference/Ethernet)
 - [Repositório para biblioteca UIPEthernet](https://github.com/UIPEthernet/UIPEthernet)
 - [Formato JSON](http://www.json.org/json-pt.html)
