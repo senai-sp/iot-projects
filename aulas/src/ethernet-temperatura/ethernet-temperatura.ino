@@ -49,6 +49,9 @@ void setup() {
 }
 
 void loop() {
+  // Estrutura de decisão com possibilidade de vários caminhos em cima de um único valor
+  // também pode ser implementado através de `if`s
+  // https://www.arduino.cc/en/Reference/SwitchCase
   switch(state) {
     case STATE_REQUEST:
       // Ler a temperatura
