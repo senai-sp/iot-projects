@@ -8,7 +8,8 @@
 
 // # Estas constantes representam os estados possíveis do arduino,
 // vamos programá-lo para que em cada estado ele execute uma ação diferente,
-// e esta ação se encarrega de trocar para o próximo estado
+// e esta ação se encarrega de trocar para o próximo estado.
+// trata-se de uma implementação básica de https://pt.wikipedia.org/wiki/State
 const int STATE_REQUEST = 1;
 const int STATE_RESPONSE = 2;
 const int STATE_WAIT = 3;
