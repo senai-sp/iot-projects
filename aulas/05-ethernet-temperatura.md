@@ -89,3 +89,7 @@ Explicação das seções:
 - [Exemplos de HTTP GET e POST](http://playground.arduino.cc/Code/WebClient)
 - [Site oficial do NodeJS](https://nodejs.org/)
 - [Lista de cabeçalhos HTTP](https://en.wikipedia.org/wiki/List_of_HTTP_header_fields)
+
+## Código
+- [Servidor (NodeJS)](./src/ethernet-temperatura/servidor/)
+- [Solução](./src/ethernet-temperatura/ethernet-temperatura.ino)
