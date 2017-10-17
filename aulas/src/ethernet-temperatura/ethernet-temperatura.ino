@@ -20,8 +20,6 @@ const int LM35_PIN = A1;
 
 int state = STATE_REQUEST;
 
-int readStarted = 0;
-
 // Endereço MAC para nossa placa de rede Ethernet
 // Em sala, substituia o último valor pelo nº do seu Kit
 // para garantir que não haja MACs duplicados
