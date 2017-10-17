@@ -1,27 +1,28 @@
-/*
-  Basic MQTT example with Authentication
-
-  - connects to an MQTT server, providing username
-    and password
-  - publishes "hello world" to the topic "outTopic"
-  - subscribes to the topic "inTopic"
-*/
-
 #include <SPI.h>
 #include <UIPEthernet.h>
 #include <utility/logging.h>
 #include <PubSubClient.h>
 
-// Update these with values suitable for your network.
+// Atualizar ultimo valor para ID do seu Kit para evitar duplicatas
 byte mac[] = { 0xDE, 0xED, 0xBA, 0xFE, 0xFE, 0x42 };
+
+// Endereço do Cloud MQTT
 char* server = "m13.cloudmqtt.com";
+
+// Valor da porta do servidor MQTT
 int port = 10141;
 
-void callback(char* topic, byte* payload, unsigned int length) {
+void whenMessageReceived(char* topic, byte* payload, unsigned int length) {
+  // Converter pointer do tipo `byte` para typo `char`
   char* payloadAsChar = payload;
+
+  // Converter em tipo String para conveniência
   String msg = String(payloadAsChar);
   Serial.print("Topic received: "); Serial.println(topic);
   Serial.print("Message: "); Serial.println(msg);
+
+  // Dentro do callback da biblioteca MQTT, 
+  // devemos usar Serial.flush() para garantir que as mensagens serão enviadas
   Serial.flush();
 
   int msgComoNumero = msg.toInt();
@@ -31,7 +32,7 @@ void callback(char* topic, byte* payload, unsigned int length) {
 }
 
 EthernetClient ethClient;
-PubSubClient client(server, port, callback, ethClient);
+PubSubClient client(server, port, whenMessageReceived, ethClient);
 
 void setup()
 {
@@ -43,12 +44,8 @@ void setup()
     Serial.println(Ethernet.localIP());
   }
 
-  // Note - the default maximum packet size is 128 bytes. If the
-  // combined length of clientId, username and password exceed this,
-  // you will need to increase the value of MQTT_MAX_PACKET_SIZE in
-  // PubSubClient.h
-
   Serial.println("Connecting...");
+  // Conectando com informações de cliente e senha criados através da interface web do serviço
   if (client.connect("arduinoClient", "arduino", "123")) {
     Serial.println("Connected");
     client.publish("outTopic", "hello world");
@@ -61,5 +58,7 @@ void setup()
 
 void loop()
 {
+  // A biblioteca PubSubClient precisa que este método seja chamado em cada iteração de `loop()`
+  // para manter a conexão MQTT e processar mensagens recebidas (via a função callback)
   client.loop();
 }
