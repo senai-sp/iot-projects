@@ -1,5 +1,6 @@
 /*
   Exercício de envio de temperaturas
+  Nova mudança
 */
 
 #include <SPI.h>
@@ -30,7 +31,7 @@ IPAddress ip(192, 168, 3, 177);
 
 // IP do servidor
 // TODO: mudar para valor real
-IPAddress server(192, 168, 3, 67);
+IPAddress server(192, 168, 3, 110);
 
 EthernetClient client;
 
