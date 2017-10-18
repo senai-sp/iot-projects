@@ -23,5 +23,6 @@ Esta lista contém links para softwares web adicionais e material de consulta.
 
 - [Trello](http://trello.com) - Gestão de projetos colaborativa e produtividade
 - [Tinkercad](https://www.tinkercad.com/) - Editor e simulador de circuitos elétricos e eletrônicos
+- [Guia básico de Git](http://rogerdudler.github.io/git-guide/index.pt_BR.html)
 - 'Colinha' de Git: [1](https://www.git-tower.com/blog/git-cheat-sheet-pt), [2](http://www.cheat-sheets.org/saved-copy/git-cheat-sheet.pdf) - Comandos principais do Git
 - [Documentação oficial Arduino](https://www.arduino.cc/en/Main/Docs) - Documentação oficial contendo deste instalação da IDE até referência da linguagem de programação e bibliotecas
