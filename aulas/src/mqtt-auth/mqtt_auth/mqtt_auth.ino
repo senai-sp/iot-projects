@@ -12,9 +12,13 @@ char* server = "m13.cloudmqtt.com";
 // Valor da porta do servidor MQTT
 int port = 10141;
 
+// Esta função será chamada quando o cliente receber uma mensagem em algum tópico em que ele está inscrito
 void whenMessageReceived(char* topic, byte* payload, unsigned int length) {
   // Converter pointer do tipo `byte` para typo `char`
   char* payloadAsChar = payload;
+  
+  // Workaround para pequeno bug na biblioteca
+  payloadAcChar[length] = 0;
 
   // Converter em tipo String para conveniência
   String msg = String(payloadAsChar);
@@ -25,9 +29,10 @@ void whenMessageReceived(char* topic, byte* payload, unsigned int length) {
   // devemos usar Serial.flush() para garantir que as mensagens serão enviadas
   Serial.flush();
 
+  // https://www.arduino.cc/en/Reference/StringToInt
   int msgComoNumero = msg.toInt();
 
-  Serial.print("Numero lido: "); Serial.println(msgComoNumero);
+  Serial.print("Numero recebido: "); Serial.println(msgComoNumero);
   Serial.flush();
 }
 
@@ -45,11 +50,23 @@ void setup()
   }
 
   Serial.println("Connecting...");
+  // Este ID deve ser único por servidor
+  char* clientId = "arduinoClient";
+  
   // Conectando com informações de cliente e senha criados através da interface web do serviço
-  if (client.connect("arduinoClient", "arduino", "123")) {
+  char* username = "arduino";
+  char* password = "123";
+  
+  if (client.connect(clientId, username, password)) {
     Serial.println("Connected");
-    client.publish("outTopic", "hello world");
-    Serial.println("outTopic sent");
+    
+    // Envia uma mensagem para o tópico 'temperatura'
+    // https://pubsubclient.knolleary.net/api.html#publish1
+    client.publish("temperatura", 23);
+    Serial.println("temperatura enviada");
+    
+    // Se inscreve nos tópicos para que mensagens futuras possam ser
+    // processadas através da função de callback
     client.subscribe("inTopic");
   } else {
     Serial.println("Failed to connect to MQTT server");
