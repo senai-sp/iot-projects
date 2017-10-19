@@ -8,9 +8,11 @@ const byte mac[] = { 0xDE, 0xED, 0xBA, 0xFE, 0xFE, 0x42 };
 
 // Endereço do Cloud MQTT
 const char* server = "m13.cloudmqtt.com";
+// Para apontar para um ip:
+// const IPAddress server(192, 168, 3, 110);
 
 // Valor da porta do servidor MQTT
-// 1883 é o valor padrão
+// 1883 é o valor padrão para servidores
 const int port = 1883;
 
 const int LED_PIN = 2;
@@ -19,21 +21,20 @@ const int LED_PIN = 2;
 void whenMessageReceived(char* topic, byte* payload, unsigned int length) {
   // Converter pointer do tipo `byte` para typo `char`
   char* payloadAsChar = payload;
-  
   // Workaround para pequeno bug na biblioteca
   payloadAcChar[length] = 0;
-
   // Converter em tipo String para conveniência
   String msg = String(payloadAsChar);
+  // https://www.arduino.cc/en/Reference/StringToInt
+  int msgComoNumero = msg.toInt();
+  
+  
   Serial.print("Topic received: "); Serial.println(topic);
   Serial.print("Message: "); Serial.println(msg);
 
   // Dentro do callback da biblioteca MQTT, 
   // devemos usar Serial.flush() para garantir que as mensagens serão enviadas
   Serial.flush();
-
-  // https://www.arduino.cc/en/Reference/StringToInt
-  int msgComoNumero = msg.toInt();
 
   Serial.print("Numero recebido: "); Serial.println(msgComoNumero);
   Serial.flush();
@@ -63,8 +64,8 @@ void setup()
   }
 
   Serial.println("Connecting...");
-  // Este ID deve ser único por servidor
-  char* clientId = "arduinoClient";
+  // Este ID deve ser unico para cada cliente (cada arduino, celular, etc)
+  char* clientId = "arduino-42";
   
   // Conectando com informações de cliente e senha criados através da interface web do serviço
   char* username = "arduino";
