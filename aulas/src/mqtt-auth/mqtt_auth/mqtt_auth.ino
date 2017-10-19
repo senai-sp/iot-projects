@@ -4,13 +4,16 @@
 #include <PubSubClient.h>
 
 // Atualizar ultimo valor para ID do seu Kit para evitar duplicatas
-byte mac[] = { 0xDE, 0xED, 0xBA, 0xFE, 0xFE, 0x42 };
+const byte mac[] = { 0xDE, 0xED, 0xBA, 0xFE, 0xFE, 0x42 };
 
 // Endereço do Cloud MQTT
-char* server = "m13.cloudmqtt.com";
+const char* server = "m13.cloudmqtt.com";
 
 // Valor da porta do servidor MQTT
-int port = 10141;
+// 1883 é o valor padrão
+const int port = 1883;
+
+const int LED_PIN = 2;
 
 // Esta função será chamada quando o cliente receber uma mensagem em algum tópico em que ele está inscrito
 void whenMessageReceived(char* topic, byte* payload, unsigned int length) {
@@ -34,6 +37,16 @@ void whenMessageReceived(char* topic, byte* payload, unsigned int length) {
 
   Serial.print("Numero recebido: "); Serial.println(msgComoNumero);
   Serial.flush();
+  
+  turnLed(msgComoNumero);
+}
+
+void turnLed(int state) {
+  if (state) {
+    digitalWrite(LED_PIN, HIGH);
+  } else {
+    digitalWrite(LED_PIN, LOW);
+  }
 }
 
 EthernetClient ethClient;
@@ -67,7 +80,7 @@ void setup()
     
     // Se inscreve nos tópicos para que mensagens futuras possam ser
     // processadas através da função de callback
-    client.subscribe("inTopic");
+    client.subscribe("lampada");
   } else {
     Serial.println("Failed to connect to MQTT server");
   }
