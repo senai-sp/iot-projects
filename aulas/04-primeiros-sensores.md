@@ -12,36 +12,36 @@ Para cada sensor, aprender como ler valores deles numa escala correta.
 
 #### Potenciometro
 
-![potenciometro](./src/primeiros-sensores/potenciometro_bb.png)
+![potenciometro](https://github.com/senai-sp/iot-exercicios/raw/master/04-primeiros-sensores/potenciometro_bb.png)
 
 #### Temperatura
 
-![temperatura](./src/primeiros-sensores/temperatura_bb.png)
+![temperatura](https://github.com/senai-sp/iot-exercicios/raw/master/04-primeiros-sensores/temperatura_bb.png)
 
 #### Luz
 
-![luz](./src/primeiros-sensores/luz_bb.png)
+![luz](https://github.com/senai-sp/iot-exercicios/raw/master/04-primeiros-sensores/luz_bb.png)
 
 ### Elétrico
 
 
 #### Potenciometro
 
-![potenciometro](./src/primeiros-sensores/potenciometro_schem.png)
+![potenciometro](https://github.com/senai-sp/iot-exercicios/raw/master/04-primeiros-sensores/potenciometro_schem.png)
 
 #### Temperatura
 
-![temperatura](./src/primeiros-sensores/temperatura_schem.png)
+![temperatura](https://github.com/senai-sp/iot-exercicios/raw/master/04-primeiros-sensores/temperatura_schem.png)
 
 #### Luz
 
-![luz](./src/primeiros-sensores/luz_schem.png)
+![luz](https://github.com/senai-sp/iot-exercicios/raw/master/04-primeiros-sensores/luz_schem.png)
 
 ## Código
 
-- [Exemplo potenciometro](./src/primeiros-sensores/potenciometro.ino)
-- [Exemplo temperatura (LM35)](./src/primeiros-sensores/temperatura.ino)
-- [Exemplo sensor de luz](./src/primeiros-sensores/luz.ino)
+- [Exemplo potenciometro](https://github.com/senai-sp/iot-exercicios/blob/master/04-primeiros-sensores/potenciometro.ino)
+- [Exemplo temperatura (LM35)](https://github.com/senai-sp/iot-exercicios/blob/master/04-primeiros-sensores/temperatura.ino)
+- [Exemplo sensor de luz](https://github.com/senai-sp/iot-exercicios/blob/master/04-primeiros-sensores/luz.ino)
 
 ## Links
 
@@ -50,7 +50,7 @@ Para cada sensor, aprender como ler valores deles numa escala correta.
 - [Descrição dos pinos analógicos do arduino](https://www.arduino.cc/en/Tutorial/AnalogInputPins)
 
 Detalhe do datasheet LM35:
-![datasheet](./src/primeiros-sensores/lm35.png)
+![datasheet](https://github.com/senai-sp/iot-exercicios/raw/master/04-primeiros-sensores/lm35.png)
 
 ## Conceitos
 - Leitura de dados analógicos
