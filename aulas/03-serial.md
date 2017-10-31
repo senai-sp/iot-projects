@@ -1,4 +1,4 @@
-# Temperaturas
+# Comunicação Serial
 
 Nesta aula vamos ver como se comunicar com o arduino durante a execução de um programa através do próprio cabo USB.
 
