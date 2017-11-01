@@ -53,6 +53,9 @@ client.connect("meu-clientid", "usuario", "senha", // informações normais de l
 - Caso o Arduino se desconecte repentinamente, o tópico de estado do LED deve reportado como deligado (Will message)
 - Caso um cliente se conectar quando o LED estiver aceso, ele deve receber imediatamente esta informação do broker (Retained message)
 
+## Código
+- [Básico](https://github.com/senai-sp/iot-exercicios/blob/master/09-mqtt-retain-will/mqtt-retain-will.ino)
+
 ## Links
 
 - [Retained Messages](https://www.hivemq.com/blog/mqtt-essentials-part-8-retained-messages)
