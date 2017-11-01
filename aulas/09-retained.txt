@@ -1,0 +1,7 @@
+Arduino->Broker: MQTT Connect
+Arduino->Broker: Publish(topic, "1", retained = true)
+Phone->Broker: MQTT Connect
+Phone->Broker: Subscribe(topic)
+Broker->Phone: topic, "1"
+Arduino->Broker: Publish(topic, "0", retained = true)
+Broker->Phone: topic, "0"

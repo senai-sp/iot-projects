@@ -7,6 +7,10 @@ Quando um cliente publica uma mensagem em um tópico, ele pode pedir ao broker q
 
 Essa mensagem é mantida até ser substituída por outra, **mesmo após o cliente que a publicou originalmente se desconectar**.
 
+![not-retained](./09-not-retained.png)
+
+![retained](./09-retained.png)
+
 ### Retain na biblioteca PubSubClient
 
 Para publicar uma mensagem que deve ser mantida pelo broker com a biblioteca `PubSubClient`, basta adicionar um último boolean `true` no método `PubSubClient::publish()`:
