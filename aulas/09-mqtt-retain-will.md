@@ -7,9 +7,13 @@ Quando um cliente publica uma mensagem em um tópico, ele pode pedir ao broker q
 
 Essa mensagem é mantida até ser substituída por outra, **mesmo após o cliente que a publicou originalmente se desconectar**.
 
-![not-retained](./09-not-retained.png)
+A imagem a seguir ilustra o que acontece com mensagens sem a marcação de *Retain*, observe que subscriber não recebe a primeira mensagem enviada antes de se conectar e inscrever-se no tópico:
 
-![retained](./09-retained.png)
+![not-retained](./09/not-retained.png)
+
+Caso a mensagem esteja retida na memória do broker, novos clientes a recebem assim que se inscrevem no tópico:
+
+![retained](./09/retained.png)
 
 ### Retain na biblioteca PubSubClient
 
