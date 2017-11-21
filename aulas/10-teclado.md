@@ -2,14 +2,26 @@
 
 Neste exercício vamos utilizar o teclado numérico para tocar sons do telefone analógico ([DTMF](https://en.wikipedia.org/wiki/Dual-tone_multi-frequency_signaling)).
 
-# Cenário proposto
+# Cenários propostos
 
-Para a execução destes cenários seu projeto físico deve conter:
+Para a execução destes cenários seu projeto físico deverá conter no máximo:
 
 - 1 Teclado Numérico (presente no kit avançado)
 - 1 Buzzer
 - 2 Resistores para controle do Buzzer
 - 1 Arduino Uno
+
+## Básico
+
+Instale o teclado numérico em seu Arduino e faça com que as teclas digitadas sejam enviadas imediatamente via comunicação Serial.
+
+Verifique o funcionamento através do Monitor Serial da IDE.
+
+## Enviando Senha
+
+Armazene os caracteres digitados pelo usuário através do teclado numérico numa array de no máximo 30 posições. Ao caractere '#' ser digitado, envie os caracteres em uma linha via comunicação Serial.
+
+## Adição de DTMF
 
 Fazer o buzzer tocar os dois tons respectivos à tecla pressionada no teclado numérico.
 
@@ -24,8 +36,8 @@ Para controlar o Buzzer a partir de 2 pinos, utilize os resistores de 300 Ohms p
 
 ## Exemplos a utilizar
 
-- DTMF: https://github.com/paolobueno/Tone/blob/master/examples/DTMFTest/DTMFTest.pde
 - Keypad: https://playground.arduino.cc/Main/KeypadTutorial
+- DTMF: https://github.com/paolobueno/Tone/blob/master/examples/DTMFTest/DTMFTest.pde
 
 A biblioteca **Keypad** necessita informações de quais pinos são Linhas e Colunas no teclado.
 
