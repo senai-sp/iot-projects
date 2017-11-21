@@ -19,7 +19,9 @@ Verifique o funcionamento através do Monitor Serial da IDE.
 
 ## 2 - Enviando Senha
 
-Armazene os caracteres digitados pelo usuário através do teclado numérico numa array de no máximo 30 posições. Ao caractere '#' ser digitado, envie os caracteres em uma linha via comunicação Serial.
+Quando o usuário digitar o caractere '*', comece a armazenar os caracteres digitados pelo usuário através do teclado numérico.
+
+Ao caractere '#' ser digitado, envie os caracteres em uma linha via comunicação Serial.
 
 ## 3 - Adição de DTMF
 
