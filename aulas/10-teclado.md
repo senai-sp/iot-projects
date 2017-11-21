@@ -23,6 +23,8 @@ Quando o usuário digitar o caractere '*', comece a armazenar os caracteres digi
 
 Ao caractere '#' ser digitado, envie os caracteres em uma linha via comunicação Serial.
 
+OPCIONAL: Definir uma senha fixa correta e verificar se a senha digitada bate.
+
 ## 3 - DTMF (Sons de telefone)
 
 Fazer o buzzer tocar os dois tons respectivos à tecla pressionada no teclado numérico.
