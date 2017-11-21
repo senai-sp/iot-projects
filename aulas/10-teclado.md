@@ -32,7 +32,7 @@ Para controlar o Buzzer a partir de 2 pinos, utilize os resistores de 300 Ohms p
 ## Bibliotecas
 
 - **Keypad**: https://playground.arduino.cc/Code/Keypad
-- **Tone**: https://code.google.com/archive/p/rogue-code/wikis/ToneLibraryDocumentation.wiki
+- **Tone**: https://github.com/paolobueno/Tone
 
 ## Exemplos a utilizar
 
@@ -53,4 +53,5 @@ Portanto os pinos digitais do Arduino aos quais estes estão conectados são os 
 
 ## Código
 
-- [Básico](https://github.com/senai-sp/iot-exercicios/blob/master/10-teclado/keypad.ino)
+- [Básico](https://github.com/senai-sp/iot-exercicios/blob/master/10-teclado/teclado/teclado.ino)
+- [DTMF](https://github.com/senai-sp/iot-exercicios/blob/master/10-teclado/dtmf/dtmf.ino)
