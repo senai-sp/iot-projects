@@ -23,7 +23,7 @@ Quando o usuário digitar o caractere '*', comece a armazenar os caracteres digi
 
 Ao caractere '#' ser digitado, envie os caracteres em uma linha via comunicação Serial.
 
-## 3 - Adição de DTMF
+## 3 - DTMF (Sons de telefone)
 
 Fazer o buzzer tocar os dois tons respectivos à tecla pressionada no teclado numérico.
 
