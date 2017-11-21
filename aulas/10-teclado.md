@@ -37,7 +37,7 @@ Para controlar o Buzzer a partir de 2 pinos, utilize os resistores de 300 Ohms p
 ## Exemplos a utilizar
 
 - Keypad: https://playground.arduino.cc/Main/KeypadTutorial
-- DTMF: https://github.com/paolobueno/Tone/blob/master/examples/DTMFTest/DTMFTest.pde
+- DTMF: https://github.com/paolobueno/Tone/blob/master/examples/DTMFTest/DTMFTest.ino
 
 A biblioteca **Keypad** necessita informações de quais pinos são Linhas e Colunas no teclado.
 
