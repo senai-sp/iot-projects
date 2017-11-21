@@ -25,6 +25,8 @@ Ao caractere '#' ser digitado, envie os caracteres em uma linha via comunicaçã
 
 OPCIONAL: Definir uma senha fixa correta e verificar se a senha digitada bate.
 
+OPCIONAL: Substituir o output serial por LCD
+
 ## 3 - DTMF (Sons de telefone)
 
 Fazer o buzzer tocar os dois tons respectivos à tecla pressionada no teclado numérico.
