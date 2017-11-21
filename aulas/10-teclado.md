@@ -11,17 +11,17 @@ Para a execução destes cenários seu projeto físico deverá conter no máximo
 - 2 Resistores para controle do Buzzer
 - 1 Arduino Uno
 
-## Básico
+## 1 - Básico
 
 Instale o teclado numérico em seu Arduino e faça com que as teclas digitadas sejam enviadas imediatamente via comunicação Serial.
 
 Verifique o funcionamento através do Monitor Serial da IDE.
 
-## Enviando Senha
+## 2 - Enviando Senha
 
 Armazene os caracteres digitados pelo usuário através do teclado numérico numa array de no máximo 30 posições. Ao caractere '#' ser digitado, envie os caracteres em uma linha via comunicação Serial.
 
-## Adição de DTMF
+## 3 - Adição de DTMF
 
 Fazer o buzzer tocar os dois tons respectivos à tecla pressionada no teclado numérico.
 
@@ -53,4 +53,4 @@ Portanto os pinos digitais do Arduino aos quais estes estão conectados são os 
 
 ## Código
 
-- [Básico](https://github.com/senai-sp/iot-exercicios/blob/master/10-teclado/keypad.ino#L1-L33)
+- [Básico](https://github.com/senai-sp/iot-exercicios/blob/master/10-teclado/keypad.ino)
