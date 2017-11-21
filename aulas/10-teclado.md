@@ -25,7 +25,7 @@ Armazene os caracteres digitados pelo usuário através do teclado numérico num
 
 Fazer o buzzer tocar os dois tons respectivos à tecla pressionada no teclado numérico.
 
-Seguir a tabela em [link](https://en.wikipedia.org/wiki/Dual-tone_multi-frequency_signaling#Keypad) e verificar o exemplo em (DTMF)[https://github.com/paolobueno/Tone/blob/master/examples/DTMFTest/DTMFTest.pde].
+Seguir a tabela em [link](https://en.wikipedia.org/wiki/Dual-tone_multi-frequency_signaling#Keypad) e verificar o exemplo em [DTMF](https://github.com/paolobueno/Tone/blob/master/examples/DTMFTest/DTMFTest.pde).
 
 Para controlar o Buzzer a partir de 2 pinos, utilize os resistores de 300 Ohms para seu polo positivo.
 
@@ -46,3 +46,11 @@ A biblioteca **Keypad** necessita informações de quais pinos são Linhas e Col
 A figura acima mostra que os primeiros 3 pinos do teclado presente no kit se tratam dos pinos de Colunas, enquanto os 4 restantes são pinos de Linhas.
 
 Portanto os pinos digitais do Arduino aos quais estes estão conectados são os que devem ser passados à biblioteca, respectivamente.
+
+## Desenho
+
+![protoboard](https://github.com/senai-sp/iot-exercicios/blob/master/10-teclado/circuito.png)
+
+## Código
+
+- [Básico](https://github.com/senai-sp/iot-exercicios/blob/master/10-teclado/keypad.ino#L1-L33)
