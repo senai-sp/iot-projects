@@ -40,7 +40,9 @@
 ## Agentes
 
 **Morador**: Cara que pode acessar a casa
+
 **Casa**: Ambiente físico sendo protegido
+
 **Invasor**: Intruso tentando burlar o sistema
 
 ## Casos de Uso
