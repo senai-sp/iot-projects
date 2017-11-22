@@ -21,9 +21,11 @@ Envia SMS através do serviço do Twilio.
 
 Os parâmetros necessários são os seguintes:
 
-- from: Número origem do twilio, sem o `"+"`
+- from: Número origem do Twilio, sem o `"+"`
 - to: Número alvo do SMS, sem o `"+"` (por exemplo seu número de celular)
 - body: Texto da mensagem
+- sid: Identificador de sua conta do Twilio
+- token: Token de sua conta do Twilio
 
 Envie parâmetros no formato `applicationn/x-www-form-urlencoded` (texto simples separado por `'&'`).
 
