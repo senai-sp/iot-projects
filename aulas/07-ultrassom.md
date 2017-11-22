@@ -33,9 +33,9 @@ Executar os seguintes exercícios:
 
 ### Protoboard
 
-![ultrassom](https://github.com/senai-sp/iot-exercicios/raw/master/07-ultrassom/sketch_bb.png)
+![ultrassom](../exercicios/07-ultrassom/sketch_bb.png)
 
 ## Código
-- [Básico](https://github.com/senai-sp/iot-exercicios/blob/master/07-ultrassom/01-basico/ultrassom.ino)
-- [Único LED](https://github.com/senai-sp/iot-exercicios/blob/master/07-ultrassom/02-led-ligar-desligar/ultrassom_led.ino)
-- [Múltiplos LEDs e Buzzer](https://github.com/senai-sp/iot-exercicios/blob/master/07-ultrassom/03-portugol/portugol.ino)
+- [Básico](../exercicios/07-ultrassom/01-basico/ultrassom.ino)
+- [Único LED](../exercicios/07-ultrassom/02-led-ligar-desligar/ultrassom_led.ino)
+- [Múltiplos LEDs e Buzzer](../exercicios/07-ultrassom/03-portugol/portugol.ino)

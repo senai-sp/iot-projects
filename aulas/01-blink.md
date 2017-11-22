@@ -6,15 +6,15 @@ Veremos também a estrutura de um programa do Arduino e como nosso código pode 
 
 ## Esquema
 
-![Protoboard](https://github.com/senai-sp/iot-exercicios/raw/master/01-blink/sketch.png)
+![Protoboard](../exercicios/01-blink/sketch.png)
 
 
-![Esquema elétrico](https://github.com/senai-sp/iot-exercicios/raw/master/01-blink/schem.png)
+![Esquema elétrico](../exercicios/01-blink/schem.png)
 
 
 ## Código
 
-- [Exercício completo](https://github.com/senai-sp/iot-exercicios/blob/master/01-blink/blink.ino)
+- [Exercício completo](../exercicios/01-blink/blink.ino)
 
 ## Conceitos
 

@@ -31,7 +31,7 @@ OPCIONAL: Substituir o output serial por LCD
 
 Fazer o buzzer tocar os dois tons respectivos à tecla pressionada no teclado numérico.
 
-Seguir a tabela em [link](https://en.wikipedia.org/wiki/Dual-tone_multi-frequency_signaling#Keypad) e verificar o exemplo em [DTMF](https://github.com/paolobueno/Tone/blob/master/examples/DTMFTest/DTMFTest.pde).
+Seguir a tabela em [link](https://en.wikipedia.org/wiki/Dual-tone_multi-frequency_signaling#Keypad) e verificar o exemplo em [DTMF](https://github.com/paolobueno/Tone/examples/DTMFTest/DTMFTest.pde).
 
 Para controlar o Buzzer a partir de 2 pinos, utilize os resistores de 300 Ohms para seu polo positivo.
 
@@ -43,7 +43,7 @@ Para controlar o Buzzer a partir de 2 pinos, utilize os resistores de 300 Ohms p
 ## Exemplos a utilizar
 
 - Keypad: https://playground.arduino.cc/Main/KeypadTutorial
-- DTMF: https://github.com/paolobueno/Tone/blob/master/examples/DTMFTest/DTMFTest.ino
+- DTMF: https://github.com/paolobueno/Tone/examples/DTMFTest/DTMFTest.ino
 
 A biblioteca **Keypad** necessita informações de quais pinos são Linhas e Colunas no teclado.
 
@@ -55,9 +55,9 @@ Portanto os pinos digitais do Arduino aos quais estes estão conectados são os 
 
 ## Desenho
 
-![protoboard](https://github.com/senai-sp/iot-exercicios/blob/master/10-teclado/circuito.png)
+![protoboard](../exercicios/10-teclado/circuito.png)
 
 ## Código
 
-- [Básico](https://github.com/senai-sp/iot-exercicios/blob/master/10-teclado/teclado/teclado.ino)
-- [DTMF](https://github.com/senai-sp/iot-exercicios/blob/master/10-teclado/dtmf/dtmf.ino)
+- [Básico](../exercicios/10-teclado/teclado/teclado.ino)
+- [DTMF](../exercicios/10-teclado/dtmf/dtmf.ino)

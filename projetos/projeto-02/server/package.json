@@ -1,0 +1,18 @@
+{
+  "name": "projeto-02-server",
+  "version": "1.0.0",
+  "description": "servidor para projeto-02",
+  "main": "index.js",
+  "author": "",
+  "scripts": {
+    "start": "node index.js",
+    "sub": "mqtt subscribe -i test -h localhost -p 1883 'senai-code-xp-vagas/#'",
+    "pub:high": "mqtt publish -i paolo142 -h localhost -p 1883 -m 1 -r 'senai-code-xp-vagas/42'",
+    "pub:low": "mqtt publish -i paolo142 -h localhost -p 1883 -m 0 -r 'senai-code-xp-vagas/42'"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "mosca": "^2.7.0",
+    "mqtt": "^2.14.0"
+  }
+}

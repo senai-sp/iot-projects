@@ -7,23 +7,23 @@ Dentre seus 4 terminais, 2 pares ficam sempre conectados entre si, porém todos 
 
 Essa é a razão de sua representação em circuito elétrico ser a seguinte:
 
-![pushbutton](https://github.com/senai-sp/iot-exercicios/raw/master/02-pushbutton/pushbutton.png)
+![pushbutton](../exercicios/02-pushbutton/pushbutton.png)
 
 ## Desenho
 
 ### Protoboard
 
-![protoboard](https://github.com/senai-sp/iot-exercicios/raw/master/02-pushbutton/sketch.png)
+![protoboard](../exercicios/02-pushbutton/sketch.png)
 
 ### Elétrico
 
-![eletrico](https://github.com/senai-sp/iot-exercicios/raw/master/02-pushbutton/sketch_schem.png)
+![eletrico](../exercicios/02-pushbutton/sketch_schem.png)
 
 ## Código
 
-- [pushbutton.ino](https://github.com/senai-sp/iot-exercicios/blob/master/02-pushbutton/pushbutton.ino)
-- [exemplo mínimo](https://github.com/senai-sp/iot-exercicios/blob/master/02-pushbutton/pushbutton-minimo.ino)
-- [versão 'toggle'](https://github.com/senai-sp/iot-exercicios/blob/master/02-pushbutton/pushbutton-toggle.ino)
+- [pushbutton.ino](../exercicios/02-pushbutton/pushbutton.ino)
+- [exemplo mínimo](../exercicios/02-pushbutton/pushbutton-minimo.ino)
+- [versão 'toggle'](../exercicios/02-pushbutton/pushbutton-toggle.ino)
 
 ## Conceitos
 

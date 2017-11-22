@@ -2,7 +2,7 @@
 
 Nesta aula iremos utilizar um shield Ethernet baseado no chip ENC28J60.
 
-Utilizaremos o mesmo sensor de temperatura visto na aula passada e vamos enviar 
+Utilizaremos o mesmo sensor de temperatura visto na aula passada e vamos enviar
 
 ## Cenário proposto
 
@@ -21,7 +21,7 @@ Utilizaremos o mesmo sensor de temperatura visto na aula passada e vamos enviar
 ```
 
 - O exemplo em `Exemplos > Ethernet > WebClient` é um bom início para seu programa, ele deve rodar somente substituindo a biblioteca conforme a seção [Utilizando a biblioteca UIPEthernet](#utilizando-a-biblioteca-uipethernet)
-- Veja o [código do servidor](https://github.com/senai-sp/iot-exercicios/raw/master/05-ethernet/servidor) para documentação
+- Veja o [código do servidor](../exercicios/05-ethernet/servidor) para documentação
 
 Recomendamos utilizar a biblioteca [ArduinoJson](https://github.com/bblanchon/ArduinoJson/) para manipular esse tipo de dados.
 
@@ -46,7 +46,7 @@ Recomendamos utilizar a biblioteca [ArduinoJson](https://github.com/bblanchon/Ar
 
 Nesta aula utilizaremos um simples servidor HTTP para cadastrarmos as temperaturas lidas de nossos sensores.
 
-Esse servidor foi escrito em cima da plataforma [NodeJS](https://nodejs.org) e seu código está disponível [neste link](https://github.com/senai-sp/iot-exercicios/tree/master/05-ethernet/servidor).
+Esse servidor foi escrito em cima da plataforma [NodeJS](https://nodejs.org) e seu código está disponível [neste link](../exercicios/tree/master/05-ethernet/servidor).
 
 Para acessar o servidor entre em http://[endereço da maquina]:8080/grafico.
 
@@ -91,5 +91,5 @@ Explicação das seções:
 - [Lista de cabeçalhos HTTP](https://en.wikipedia.org/wiki/List_of_HTTP_header_fields)
 
 ## Código
-- [Servidor (NodeJS)](https://github.com/senai-sp/iot-exercicios/tree/master/05-ethernet/servidor/)
-- [Solução](https://github.com/senai-sp/iot-exercicios/tree/master/05-ethernet/ethernet.ino)
+- [Servidor (NodeJS)](../exercicios/tree/master/05-ethernet/servidor/)
+- [Solução](../exercicios/tree/master/05-ethernet/ethernet.ino)

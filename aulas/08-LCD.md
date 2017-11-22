@@ -27,8 +27,8 @@ Executar os seguintes exercícios:
 
 ### Protoboard
 
-![LCD](https://github.com/senai-sp/iot-exercicios/raw/master/08-lcd/sketch_bb.png)
+![LCD](../exercicios/08-lcd/sketch_bb.png)
 
 ## Código
-- [Básico](https://github.com/senai-sp/iot-exercicios/blob/master/08-lcd/01-basico/lcd.ino)
-- [Exibir distância](https://github.com/senai-sp/iot-exercicios/blob/master/08-lcd/02-escrever-distancia/escrever-distancia.ino)
+- [Básico](../exercicios/08-lcd/01-basico/lcd.ino)
+- [Exibir distância](../exercicios/08-lcd/02-escrever-distancia/escrever-distancia.ino)

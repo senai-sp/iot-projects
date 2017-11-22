@@ -12,36 +12,36 @@ Para cada sensor, aprender como ler valores deles numa escala correta.
 
 #### Potenciometro
 
-![potenciometro](https://github.com/senai-sp/iot-exercicios/raw/master/04-dados-analogicos/potenciometro/potenciometro_bb.png)
+![potenciometro](../exercicios/04-dados-analogicos/potenciometro/potenciometro_bb.png)
 
 #### Temperatura
 
-![temperatura](https://github.com/senai-sp/iot-exercicios/raw/master/04-dados-analogicos/temperatura/temperatura_bb.png)
+![temperatura](../exercicios/04-dados-analogicos/temperatura/temperatura_bb.png)
 
 #### Luz
 
-![luz](https://github.com/senai-sp/iot-exercicios/raw/master/04-dados-analogicos/luz/luz_bb.png)
+![luz](../exercicios/04-dados-analogicos/luz/luz_bb.png)
 
 ### Elétrico
 
 
 #### Potenciometro
 
-![potenciometro](https://github.com/senai-sp/iot-exercicios/raw/master/04-dados-analogicos/potenciometro/potenciometro_schem.png)
+![potenciometro](../exercicios/04-dados-analogicos/potenciometro/potenciometro_schem.png)
 
 #### Temperatura
 
-![temperatura](https://github.com/senai-sp/iot-exercicios/raw/master/04-dados-analogicos/temperatura/temperatura_schem.png)
+![temperatura](../exercicios/04-dados-analogicos/temperatura/temperatura_schem.png)
 
 #### Luz
 
-![luz](https://github.com/senai-sp/iot-exercicios/raw/master/04-dados-analogicos/luz/luz_schem.png)
+![luz](../exercicios/04-dados-analogicos/luz/luz_schem.png)
 
 ## Código
 
-- [Exemplo potenciometro](https://github.com/senai-sp/iot-exercicios/blob/master/04-dados-analogicos/potenciometro/potenciometro.ino)
-- [Exemplo temperatura (LM35)](https://github.com/senai-sp/iot-exercicios/blob/master/04-dados-analogicos/temperatura/temperatura.ino)
-- [Exemplo sensor de luz](https://github.com/senai-sp/iot-exercicios/blob/master/04-dados-analogicos/luz/luz.ino)
+- [Exemplo potenciometro](../exercicios/04-dados-analogicos/potenciometro/potenciometro.ino)
+- [Exemplo temperatura (LM35)](../exercicios/04-dados-analogicos/temperatura/temperatura.ino)
+- [Exemplo sensor de luz](../exercicios/04-dados-analogicos/luz/luz.ino)
 
 ## Links
 
@@ -50,7 +50,7 @@ Para cada sensor, aprender como ler valores deles numa escala correta.
 - [Descrição dos pinos analógicos do arduino](https://www.arduino.cc/en/Tutorial/AnalogInputPins)
 
 Detalhe do datasheet LM35:
-![datasheet](https://github.com/senai-sp/iot-exercicios/raw/master/04-dados-analogicos/lm35.png)
+![datasheet](../exercicios/04-dados-analogicos/lm35.png)
 
 ## Conceitos
 - Leitura de dados analógicos

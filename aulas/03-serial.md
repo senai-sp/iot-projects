@@ -17,18 +17,18 @@ um LED acenda, uma frequencia diferente toque no Buzzer e uma mensagem seja reto
 
 ### Protoboard
 
-![protoboard](https://github.com/senai-sp/iot-exercicios/raw/master/03-serial/sketch_bb.png)
+![protoboard](../exercicios/03-serial/sketch_bb.png)
 
 ### Elétrico
 
-![eletrico](https://github.com/senai-sp/iot-exercicios/raw/master/03-serial/sketch_schem.png)
+![eletrico](../exercicios/03-serial/sketch_schem.png)
 
 
 ## Código
 
-- [Exercício completo](https://github.com/senai-sp/iot-exercicios/blob/master/03-serial/temperaturas.ino)
-- [Leitura dos nomes das cores](https://github.com/senai-sp/iot-exercicios/blob/master/03-serial/temperaturas-nomes.ino)
-- [Utilizando evento SerialEvent()](https://github.com/senai-sp/iot-exercicios/blob/master/03-serial/temperaturas-event.ino)
+- [Exercício completo](../exercicios/03-serial/temperaturas.ino)
+- [Leitura dos nomes das cores](../exercicios/03-serial/temperaturas-nomes.ino)
+- [Utilizando evento SerialEvent()](../exercicios/03-serial/temperaturas-event.ino)
 
 ## Conceitos
 - Estrutura `for`

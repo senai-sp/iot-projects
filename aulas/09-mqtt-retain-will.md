@@ -54,7 +54,7 @@ client.connect("meu-clientid", "usuario", "senha", // informações normais de l
 - Caso um cliente se conectar quando o LED estiver aceso, ele deve receber imediatamente esta informação do broker (Retained message)
 
 ## Código
-- [Básico](https://github.com/senai-sp/iot-exercicios/blob/master/09-mqtt-retain-will/mqtt-retain-will.ino)
+- [Básico](../exercicios/09-mqtt-retain-will/mqtt-retain-will.ino)
 
 ## Links
 

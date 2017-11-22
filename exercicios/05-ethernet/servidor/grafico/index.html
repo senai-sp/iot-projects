@@ -1,0 +1,150 @@
+<html>
+<head>
+  <title>Gráfico de temperaturas</title>
+  <script src="./Chart.bundle.js"></script>
+  <script>
+    const chartConfig = {
+      type: 'line',
+      data: {
+      },
+      options: {
+        responsive: true,
+        title:{
+          display:true,
+          text:'Temperaturas'
+        },
+        tooltips: {
+          mode: 'index',
+          intersect: false,
+        },
+        hover: {
+          mode: 'nearest',
+          intersect: true
+        },
+        scales: {
+          xAxes: [{
+            type: "time",
+            display: true,
+            scaleLabel: {
+              display: true,
+              labelString: 'Tempo'
+            },
+            ticks: {
+              major: {
+                fontStyle: "bold",
+                fontColor: "#FF0000"
+              }
+            }
+          }],
+          yAxes: [{
+            display: true,
+            scaleLabel: {
+              display: true,
+              labelString: 'Temperatura'
+            }
+          }]
+        }
+      }
+    };
+    
+    function registrarErro(err) {
+      console.error(err);
+      document.getElementById('container-error').textContent = err;
+    }
+    
+    function limparErro() {
+      document.getElementById('container-error').textContent = '';
+    }
+    
+    function corAleatoria() {
+      var letters = '0123456789ABCDEF'.split('');
+      var color = '#';
+      for (var i = 0; i < 6; i++ ) {
+        color += letters[Math.floor(Math.random() * 16)];
+      }
+      return color;
+    }
+    
+    function construirGrafico(dados) {
+      // dados é {idKit: [{temp: 25, timestamp: 132416546525]}
+      
+      // criar 1 dataset por idKit
+      const datasets = [];
+      for (var idKit in dados) {
+        if (dados.hasOwnProperty(idKit)) {
+          const temps = dados[idKit];
+          // extrair valor celcius do objeto que inclui timestamps
+          const temperaturas = temps.map(function(t) {
+            return {
+              x: t.timestamp,
+              y: t.temp
+            }
+          });
+          const cor = corAleatoria();
+          datasets.push({
+            label: idKit,
+            data: temperaturas,
+            borderColor: cor
+          });
+        }
+      }
+      
+      // mostrar temperaturas como pontos
+      chartConfig.data.datasets = datasets;
+      const contextoCanvas = document.getElementById("grafico").getContext("2d");
+      new Chart(contextoCanvas, chartConfig);
+    } 
+    function atualizarGrafico() {
+      limparErro();
+      // baixar dados 
+      const url = document.getElementById('input-url').value;
+      fetch(url).then(function(res) {
+        return res.json();
+      })
+      .then(construirGrafico)
+      .catch(registrarErro)
+      
+      // prevenir que pagina atualize
+      return false;
+    }
+    
+    function adicionarTemperatura() {
+      const url = document.getElementById('input-url').value;
+      let temperatura = document.getElementById('test-temp').value;
+      // converter para numero:
+      temperatura = +temperatura;
+      fetch(url, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          temp: temperatura,
+          id: 42
+        })
+      })
+      .then(console.log)
+      .then(atualizarGrafico);
+      return false;
+    }
+  </script>
+</head>
+<body>
+  <form onsubmit="return atualizarGrafico()">
+    <p>
+      <label for="input-url">Servidor:</label>
+      <input type="text" id="input-url" value="http://127.0.0.1:8080">
+    </p>
+    <p>
+      <label for="test-temp">Temperatura Teste:</label>
+      <input type="number" id="test-temp" value="25">
+      <button onclick="return adicionarTemperatura()">Adicionar</button>
+    </p>
+    <p>
+      <input type="submit" value="Atualizar"></button>
+    </p>
+  </form>
+  <p class="erro" id="container-error"></p>
+  <canvas id="grafico"></canvas>
+</body>
+</html>
