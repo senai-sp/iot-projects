@@ -2,7 +2,6 @@
 
 Este é um servidor que acessa o serviço do [Twilio](https://www.twilio.com/) para envio de SMS
 
-
 ## Utilização
 
 Para rodar este servidor, tenha o [NodeJS](http://nodejs.org/) instalado e rode os seguintes comandos via linha de comando no diretório do servidor:
@@ -11,6 +10,8 @@ Para rodar este servidor, tenha o [NodeJS](http://nodejs.org/) instalado e rode 
 npm install
 npm start
 ```
+
+Para baixar somente o código deste servidor sem clonar todo o repositório, faça o download de [sms.zip](../sms.zip)
 
 ## API
 
