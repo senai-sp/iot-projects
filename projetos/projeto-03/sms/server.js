@@ -16,8 +16,8 @@ app.post('/send', urlencodedParser, function(req, res) {
   var client = twilio(req.body.sid, req.body.token);
   console.log(req.body);
   client.messages.create({
-    to: req.body.to,
-    from: req.body.from,
+    to: "+" + req.body.to,
+    from: "+" + req.body.from,
     body: req.body.body,
   }, function(err, message) {
     if(err) {
