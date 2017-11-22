@@ -23,10 +23,10 @@ void setup() {
 	}
 
 	String parametros = "sid=" + sid +
-	"token=" + token +
-	"to=" + to
-	"from=" + from +
-	"body=Mensagem Legal";
+	"&token=" + token +
+	"&to=" + to
+	"&from=" + from +
+	"&body=Mensagem Legal";
 
 	int statusCode = client.post("/sms", parametros.c_str(), &response);
 	Serial.print("Status da resposta: ");
