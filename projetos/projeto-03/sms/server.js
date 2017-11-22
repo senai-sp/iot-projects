@@ -1,6 +1,7 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 var stringify = require('json-stringify-safe');
+var morgan = require('morgan');
 
 var twilio = require('twilio');
 var app = express();
@@ -8,8 +9,10 @@ var app = express();
 // create application/x-www-form-urlencoded parser
 var urlencodedParser = bodyParser.urlencoded({ extended: false });
 
+app.use(morgan('tiny'));
+
 // POST /login gets urlencoded bodies
-app.post('/send', urlencodedParser, function(req, res) {
+app.post('/sms', urlencodedParser, function(req, res) {
   if (!req.body) {
     return res.sendStatus(400);
   }
@@ -21,6 +24,7 @@ app.post('/send', urlencodedParser, function(req, res) {
     body: req.body.body,
   }, function(err, message) {
     if(err) {
+      console.error(err);
       return res.status(400).end();
     } else {
       res.status(200).send(stringify(message, null, 2));
