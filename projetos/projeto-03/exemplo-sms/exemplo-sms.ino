@@ -5,11 +5,11 @@
 const byte mac[] = { 0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0x52 };
 EthernetClient ethclient;
 
-RestClient client = RestClient("192.168.3.122", 3000, ethclient);
-String sid = "SEU_SID";
-String token = "SEU_TOKEN";
-String to = "1234567980";
-String from = "1234567980";
+RestClient client = RestClient("192.168.3.41", 3000, ethclient);
+const char* sid = "TWILIO_SID";
+const char* token = "TWILIO_TOKEN";
+const char* to = "1234567890";
+const char* from = "1234567890";
 
 String response = "";
 
@@ -22,11 +22,21 @@ void setup() {
 		Serial.print("IP recebido:"); Serial.println(Ethernet.localIP());
 	}
 
-	String parametros = "sid=" + sid +
-	"&token=" + token +
-	"&to=" + to
-	"&from=" + from +
-	"&body=Mensagem Legal";
+	String parametros = "sid=";
+	parametros.concat(sid);
+
+	parametros.concat("&token=");
+	parametros.concat(token);
+
+	parametros.concat("&to=");
+	parametros.concat(to);
+
+	parametros.concat("&from=");
+	parametros.concat(from);
+
+	parametros.concat("&body=Mensagem Legal");
+
+	Serial.println(parametros);
 
 	int statusCode = client.post("/sms", parametros.c_str(), &response);
 	Serial.print("Status da resposta: ");
