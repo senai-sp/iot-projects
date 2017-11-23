@@ -23,19 +23,18 @@ app.post('/sms', urlencodedParser, function(req, res) {
   if (!req.body) {
     return res.sendStatus(400);
   }
-  console.log(req.body);
   var client = new twilio(req.body.sid, req.body.token);
-  console.log(req.body);
+  console.log(stringify(req.body, serializer, 2));
   client.messages.create({
     to: "+" + req.body.to,
     from: "+" + req.body.from,
     body: req.body.body,
   })
-  .then(message => res.status(200).send(stringify(message, serializer, 2)))
-  .catch(err => {
-    console.error(err);
-    return res.status(400).end();
-  });
+    .then(message => res.status(200).send(stringify(message, null, 2)))
+    .catch(err => {
+      console.error(err);
+      return res.status(400).end();
+    });
 });
 
 app.listen(3000, function() {
