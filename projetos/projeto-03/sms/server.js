@@ -11,7 +11,12 @@ var urlencodedParser = bodyParser.urlencoded({ extended: false });
 
 app.use(morgan('dev'));
 
-const serializer = (k, v) => String(v).substr(0, 6);
+const serializer = (k, v) => {
+  if(typeof v === 'string') {
+    return v.substr(0, 6);
+  }
+  return v;
+};
 
 // POST /login gets urlencoded bodies
 app.post('/sms', urlencodedParser, function(req, res) {
@@ -26,11 +31,11 @@ app.post('/sms', urlencodedParser, function(req, res) {
     from: "+" + req.body.from,
     body: req.body.body,
   })
-    .then(message => res.status(200).send(stringify(message, serializer, 2)))
-    .catch(err => {
-      console.error(err);
-      return res.status(400).end();
-    });
+  .then(message => res.status(200).send(stringify(message, serializer, 2)))
+  .catch(err => {
+    console.error(err);
+    return res.status(400).end();
+  });
 });
 
 app.listen(3000, function() {
