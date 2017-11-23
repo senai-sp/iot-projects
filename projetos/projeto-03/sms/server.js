@@ -11,6 +11,8 @@ var urlencodedParser = bodyParser.urlencoded({ extended: false });
 
 app.use(morgan('dev'));
 
+const serializer = (k, v) => String(v).substr(0, 6);
+
 // POST /login gets urlencoded bodies
 app.post('/sms', urlencodedParser, function(req, res) {
   if (!req.body) {
@@ -24,7 +26,7 @@ app.post('/sms', urlencodedParser, function(req, res) {
     from: "+" + req.body.from,
     body: req.body.body,
   })
-    .then(message => res.status(200).send(stringify(message, null, 2)))
+    .then(message => res.status(200).send(stringify(message, serializer, 2)))
     .catch(err => {
       console.error(err);
       return res.status(400).end();
