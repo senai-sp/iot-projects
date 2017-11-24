@@ -13,7 +13,7 @@ app.use(morgan('dev'));
 
 const serializer = (k, v) => {
   if(typeof v === 'string') {
-    return v.substr(0, 6);
+    return v.substr(0, 12);
   }
   return v;
 };
@@ -31,10 +31,7 @@ app.post('/sms', urlencodedParser, function(req, res) {
     body: req.body.body,
   })
     .then(message => res.status(200).send(stringify(message, null, 2)))
-    .catch(err => {
-      console.error(err);
-      return res.status(400).end();
-    });
+    .catch(err => res.status(400).send(err.message));
 });
 
 app.listen(3000, function() {
