@@ -23,15 +23,19 @@ app.post('/sms', urlencodedParser, function(req, res) {
   if (!req.body) {
     return res.sendStatus(400);
   }
-  var client = new twilio(req.body.sid, req.body.token);
   console.log(stringify(req.body, serializer, 2));
+  try {
+    var client = new twilio(req.body.sid, req.body.token);
+  } catch (err) {
+    res.status(500).send('Necessário sid e token!');
+  }
   client.messages.create({
     to: "+" + req.body.to,
     from: "+" + req.body.from,
     body: req.body.body,
   })
-    .then(message => res.status(200).send(stringify(message, null, 2)))
-    .catch(err => res.status(400).send(err.message));
+  .then(message => res.status(200).send(stringify(message, null, 2)))
+  .catch(err => res.status(400).send(err.message));
 });
 
 app.listen(3000, function() {
