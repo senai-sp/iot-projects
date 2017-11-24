@@ -26,16 +26,16 @@ app.post('/sms', urlencodedParser, function(req, res) {
   console.log(stringify(req.body, serializer, 2));
   try {
     var client = new twilio(req.body.sid, req.body.token);
+    client.messages.create({
+      to: "+" + req.body.to,
+      from: "+" + req.body.from,
+      body: req.body.body,
+    })
+      .then(message => res.status(200).send(stringify(message, null, 2)))
+      .catch(err => res.status(400).send(err.message));
   } catch (err) {
-    res.status(500).send('Necessário sid e token!');
+    return res.status(500).send('Necessário sid e token!');
   }
-  client.messages.create({
-    to: "+" + req.body.to,
-    from: "+" + req.body.from,
-    body: req.body.body,
-  })
-  .then(message => res.status(200).send(stringify(message, null, 2)))
-  .catch(err => res.status(400).send(err.message));
 });
 
 app.listen(3000, function() {
