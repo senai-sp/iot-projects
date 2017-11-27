@@ -6,14 +6,16 @@ const byte mac[] = { 0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0x52 };
 EthernetClient ethclient;
 
 RestClient client = RestClient("192.168.3.41", 3000, ethclient);
-const char* sid = "TWILIO_SID";
-const char* token = "TWILIO_TOKEN";
-const char* to = "1234567890";
-const char* from = "1234567890";
+
+#define SMS_TWILIO_SID TWILIO_SID
+#define SMS_TWILIO_TOKEN TWILIO_TOKEN
+#define SMS_PHONE_TO = 1234567890
+#define SMS_PHONE_FROM = 1234567890
+#define SMS_MESSAGE Mensagem Legal
+const char* parametros = "sid=SMS_TWILIO_SID&token=SMS_TWILIO_TOKEN&to=SMS_PHONE_TO&from=SMS_PHONE_FROM&body=SMS_MESSAGE";
 
 String response = "";
 
-//Setup
 void setup() {
 	Serial.begin(9600);
 	// Connect via DHCP
@@ -22,23 +24,8 @@ void setup() {
 		Serial.print("IP recebido:"); Serial.println(Ethernet.localIP());
 	}
 
-	String parametros = "sid=";
-	parametros.concat(sid);
-
-	parametros.concat("&token=");
-	parametros.concat(token);
-
-	parametros.concat("&to=");
-	parametros.concat(to);
-
-	parametros.concat("&from=");
-	parametros.concat(from);
-
-	parametros.concat("&body=Mensagem Legal");
-
 	Serial.println(parametros);
-
-	int statusCode = client.post("/sms", parametros.c_str(), &response);
+	int statusCode = client.post("/sms", parametros, &response);
 	Serial.print("Status da resposta: ");
 	Serial.println(statusCode);
 	Serial.print("Resposta do servidor: ");
