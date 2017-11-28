@@ -1,8 +1,13 @@
+// Utilizamos o preprocessador #ifndef para evitar problemas caso este
+// arquivo sofra #include mais de uma vez
+// https://pt.wikipedia.org/wiki/Include_guard
 #ifndef BUTTON_h
 #define BUTTON_h
 
 #include <Arduino.h>
 
+// Formato da assinatura do nosso callback,
+// um pointer para uma função que não recebe nenhum parâmetro
 #define ASSINATURA_CALLBACK void (*callback)()
 
 #define BUTTON_DEFAULT_DEBOUNCE 200

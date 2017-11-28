@@ -1,14 +1,21 @@
 #include "Button.h"
 
-// Construtores
+/**
+ * Construtor principal que recebe todos os parâmetros
+ */
 Button::Button(unsigned int port, ASSINATURA_CALLBACK, unsigned int debounce) {
 	this->port = port;
+
+	// Delegamos a configuração dos outros parâmetros para funções específicas
 	setCallback(callback);
 	setDebounce(debounce);
 }
+
 Button::Button(unsigned int port, ASSINATURA_CALLBACK) {
 	this->port = port;
 	setCallback(callback);
+	// Para as versões dos construtores que recebem menos parâmetros,
+	// só configuramos valores padrão
 	setDebounce(BUTTON_DEFAULT_DEBOUNCE);
 }
 Button::Button(unsigned int port) {
@@ -21,6 +28,9 @@ void Button::setCallback(ASSINATURA_CALLBACK) {
 	this->callback = callback;
 }
 
+/**
+ *  Configurar o tempo mínimo entre detectar pressionamentos
+ */
 void Button::setDebounce(unsigned int millis) {
 	this->debounce = millis;
 }
