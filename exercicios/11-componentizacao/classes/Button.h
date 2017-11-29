@@ -13,7 +13,7 @@
 // um pointer para uma função que não recebe nenhum parâmetro
 #define ASSINATURA_CALLBACK void (*callback)()
 
-//
+// Valor padrão de debounce, que é o intervalo mínimo entre registrar diferentes cliques, 200 ms
 #define BUTTON_DEFAULT_DEBOUNCE 200
 
 // Declaração de classe
