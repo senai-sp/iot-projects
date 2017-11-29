@@ -91,3 +91,4 @@ Quer dizer, ao invés da assinatura do callback ser `void (*callback)()`, torná
 - [Header files no C](http://www.cprogressivo.net/2013/09/Header-cabecalho-o-que-sao-para-que-servem-como-criar-e-usar-seus-arquivos-.h.html)
 - [Básico de classes em C++](http://www.inf.pucrs.br/~pinho/PRGSWB/OO/oocpp.html)
 - [Ponteiros em C](https://www.ime.usp.br/~pf/algoritmos/aulas/pont.html)
+- [Construtores em C++](https://msdn.microsoft.com/pt-br/library/s16xw1a8.aspx)
