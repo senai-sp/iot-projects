@@ -15,7 +15,7 @@ RestClient client = RestClient("192.168.3.41", 3000, ethclient);
 
 const char* parametros = "sid=" SMS_TWILIO_SID "&token=" SMS_TWILIO_TOKEN "&to=" SMS_PHONE_TO "&from=" SMS_PHONE_FROM "&body=" SMS_MESSAGE;
 
-String response = "";
+char response[30] = {};
 
 void setup() {
 	Serial.begin(9600);
@@ -26,7 +26,7 @@ void setup() {
 	}
 
 	Serial.println(parametros);
-	int statusCode = client.post("/sms", parametros, &response);
+	int statusCode = client.post("/sms", parametros, response);
 	Serial.print("Status da resposta: ");
 	Serial.println(statusCode);
 	Serial.print("Resposta do servidor: ");
