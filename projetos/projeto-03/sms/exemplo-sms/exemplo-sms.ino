@@ -1,11 +1,13 @@
 #include <UIPEthernet.h>
-#include <RestClient.h>
+
+// Instalar via Library Manager da IDE
+#include <ArduinoHttpClient.h>
 
 // Alterar o último valor para o id do seu kit
 const byte mac[] = { 0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0x52 };
 EthernetClient ethclient;
 
-RestClient client = RestClient("192.168.3.41", 3000, ethclient);
+HttpClient client = HttpClient(ethclient, "192.168.3.186", 3000);
 
 #define SMS_TWILIO_SID "TWILIO_SID"
 #define SMS_TWILIO_TOKEN "TWILIO_TOKEN"
@@ -13,9 +15,11 @@ RestClient client = RestClient("192.168.3.41", 3000, ethclient);
 #define SMS_PHONE_FROM "1234567890"
 #define SMS_MESSAGE "Mensagem Legal"
 
+#define CONTENT_TYPE "application/x-www-form-urlencoded"
+
 const char* parametros = "sid=" SMS_TWILIO_SID "&token=" SMS_TWILIO_TOKEN "&to=" SMS_PHONE_TO "&from=" SMS_PHONE_FROM "&body=" SMS_MESSAGE;
 
-#define RESPONSE_SIZE 30
+#define RESPONSE_SIZE 60
 char response[RESPONSE_SIZE] = {};
 
 void setup() {
@@ -25,16 +29,22 @@ void setup() {
 		Serial.println("Conectado via DHCP");
 		Serial.print("IP recebido:"); Serial.println(Ethernet.localIP());
 	}
+}
 
+void enviarSMS() {
 	Serial.println(parametros);
-	int statusCode = client.post("/sms", parametros, response, RESPONSE_SIZE);
+	client.post("/sms", CONTENT_TYPE, parametros);
+
+	int statusCode = client.responseStatusCode();
 	Serial.print("Status da resposta: ");
 	Serial.println(statusCode);
+
+	String response = client.responseBody();
 	Serial.print("Resposta do servidor: ");
 	Serial.println(response);
-	delay(1000);
 }
 
 void loop(){
-
+	enviarSMS();
+	delay(5000);
 }
