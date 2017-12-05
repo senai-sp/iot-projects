@@ -38,5 +38,15 @@ A string acima será armazenada em memória de programa e lida dela em tempo de 
 
 ## Links
 
+A tabela seguinte mostra a quantidade de memória disponível para cada microcontrolador presentes no Arduino.
+
+O modelo UNO utliza o ATMega328P:
+
+|   | ATMega168 | ATMega328P | ATmega1280 | ATmega2560 |
+|---|---|---|---|---|
+| Flash | 16 kBytes | 32 kBytes | 128 kBytes | 256 kBytes |
+| SRAM | 1024 bytes | 2048 bytes | 8 kBytes | 8kBytes |
+| EEPROM | 512 bytes | 1024 bytes | 4 kBytes | 4 kBytes |
+
 - [Tipos de memória do Arduino](https://www.arduino.cc/en/Tutorial/Memory)
 - [PROGMEM](https://www.arduino.cc/reference/en/language/variables/utilities/progmem/)
