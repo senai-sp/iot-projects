@@ -65,8 +65,11 @@ O protocolo I2C utiliza os 2 pinos mais próximos do pino `AREF`, no caso do UNO
 
 Este protocolo funciona com uma estrutura Master-Slave, onde uma unidade principal (Master) coordena a comunicação e Slaves operam quando requisitados pelo Master.
 
+## Exemplos
+- [I2C: Escrever a partir do Master](../exercicios/12-comunicacao-local/master-writer/)
+- [I2C: Ler a partir do Master](../exercicios/12-comunicacao-local/master-reader/)
+
 ## Links
 
-- [Exemplo MasterReader](https://www.arduino.cc/en/Tutorial/MasterWriter)
 - [Biblioteca Wire (I2C)](https://www.arduino.cc/en/Reference/Wire)
 - [Software Serial](https://www.arduino.cc/en/Reference/SoftwareSerial)
