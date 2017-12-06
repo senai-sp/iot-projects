@@ -1,7 +1,7 @@
 const int btn = 2;
 
-// Declaramos as variáveis a seguir fora do loop() para que estejam disponíveis para
-// todas as execuções de loop(), e seus valores sejam mantidos
+// Declaramos as variáveis a seguir fora do loop() para que estejam disponíveis
+// para todas as execuções de loop(), e seus valores sejam mantidos
 
 // Variável para termos um histórico de se o botão estava pressionado no
 // loop() anterior ou não
@@ -17,7 +17,8 @@ void setup() {
 
 void loop() {
   int btnState = digitalRead(btn);
-  // Caso o botão esteja pressionado neste instante, e não estava pressionado anteriormente
+  // Caso o botão esteja pressionado neste instante, e não estava pressionado
+  // anteriormente
   if (btnState && !prevBtnState) {
     // Invertemos o estado do LED
     if (ledOn) {
@@ -38,4 +39,3 @@ void loop() {
   // Armazenando o estado atual do botão para a próxima execução de loop()
   prevBtnState = btnState;
 }
-

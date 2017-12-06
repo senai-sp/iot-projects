@@ -1,5 +1,5 @@
 // Inclusão da biblioteca do sensor
-// Essa biblioteca não vem por padrão com o arduino e 
+// Essa biblioteca não vem por padrão com o arduino e
 // precisa ser instalada pelo gerenciador de bibliotecas
 #include <Ultrasonic.h>
 
@@ -19,6 +19,6 @@ void loop() {
   // Escreve o valor da distância no painel Serial
   Serial.print("Distance in CM: ");
   Serial.println(distancia);
-  
+
   delay(1000);
 }

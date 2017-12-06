@@ -1,9 +1,9 @@
+#include <PubSubClient.h>
 #include <SPI.h>
 #include <UIPEthernet.h>
 #include <utility/logging.h>
-#include <PubSubClient.h>
 
-byte mac[]    = {  0xDE, 0xED, 0xBA, 0xFE, 0xFE, 0xED };
+byte mac[] = {0xDE, 0xED, 0xBA, 0xFE, 0xFE, 0xED};
 
 void callback(char* topic, byte* payload, unsigned int length) {
   Serial.println(topic);
@@ -24,25 +24,22 @@ boolean reconnect() {
   return client.connected();
 }
 
-void setup()
-{
+void setup() {
   Serial.begin(9600);
   Serial.println("iniciando...");
   Ethernet.begin(mac);
   delay(1500);
-  
+
   lastReconnectAttempt = 0;
 }
 
-
-void loop()
-{
+void loop() {
   if (!client.connected()) {
     long now = millis();
     if (now - lastReconnectAttempt > 5000) {
       Serial.println("reconectando...");
       lastReconnectAttempt = now;
-      
+
       if (reconnect()) {
         lastReconnectAttempt = 0;
       }
@@ -50,5 +47,4 @@ void loop()
   } else {
     client.loop();
   }
-
 }

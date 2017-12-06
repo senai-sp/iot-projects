@@ -1,8 +1,8 @@
 // Inclusão da biblioteca do sensor
-// Essa biblioteca não vem por padrão com o arduino e 
+// Essa biblioteca não vem por padrão com o arduino e
 // precisa ser instalada pelo gerenciador de bibliotecas
-#include <Ultrasonic.h>
 #include <LiquidCrystal.h>
+#include <Ultrasonic.h>
 
 // Inicializa o objeto do sensor ultrasônico
 // Usando as portas 12 e 13 para trigger e echo
@@ -30,4 +30,3 @@ void loop() {
   lcd.print(distancia);
   delay(1000);
 }
-

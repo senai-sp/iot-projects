@@ -1,7 +1,3 @@
-void setup() {
-	buttonSetup();
-}
+void setup() { buttonSetup(); }
 
-void loop() {
-	buttonLoop();
-}
+void loop() { buttonLoop(); }

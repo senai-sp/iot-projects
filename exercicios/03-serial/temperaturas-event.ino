@@ -1,27 +1,26 @@
 /*
-  Esta versão utiliza a função serialEvent() para rodar o código de leitura somente
-  quando há alguma alteração nos dados da porta Serial,
-  isso evita a checagem dentro de loop()
+  Esta versão utiliza a função serialEvent() para rodar o código de leitura
+  somente quando há alguma alteração nos dados da porta Serial, isso evita a
+  checagem dentro de loop()
 */
 const int red = 13;
 const int yellow = 12;
 const int green = 11;
 const int buzzer = 5;
 
-void setup()
-{
+void setup() {
   pinMode(red, OUTPUT);
   pinMode(yellow, OUTPUT);
   pinMode(green, OUTPUT);
   Serial.begin(9500);
-  
-  while(!Serial) {
+
+  while (!Serial) {
   }
   Serial.println("Inicio");
 }
 
 void processarTemperatura(int temperatura) {
-  if(temperatura < 30) {
+  if (temperatura < 30) {
     ligarSomente(green);
     tocarSom(4186);
     Serial.println("Temperatura normal");
@@ -37,7 +36,7 @@ void processarTemperatura(int temperatura) {
 }
 
 void ligarSomente(int pino) {
-  for(int i = 11; i <= 13; i++) {
+  for (int i = 11; i <= 13; i++) {
     digitalWrite(i, LOW);
   }
   digitalWrite(pino, HIGH);
@@ -54,6 +53,4 @@ void serialEvent() {
   processarTemperatura(temp);
 }
 
-void loop()
-{
-}
+void loop() {}
