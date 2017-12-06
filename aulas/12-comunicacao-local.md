@@ -80,6 +80,7 @@ Eles devem ser conectados ao mesmo barramento (SDA com SDA, SCL com SCL)
 ## Exemplos
 - [I2C: Escrever a partir do Master](../exercicios/12-comunicacao-local/master-writer/)
 - [I2C: Ler a partir do Master](../exercicios/12-comunicacao-local/master-reader/)
+- [Exemplo com envio de SMS a partir de sensor analógico](../exercicios/12-comunicacao-local/http-sms)
 
 ## Links
 
