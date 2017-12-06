@@ -1,7 +1,7 @@
 #include <Wire.h>
 void setup() {
 	// Ingressar no bus como Master
-  Wire.begin();
+	Wire.begin();
 }
 
 byte x = 0;
@@ -14,11 +14,11 @@ void loop() {
 	// Envia os 5 bytes da mensagem
 	Wire.write("x eh ");
 
-	// transformar x em char[] e transmitir
-	Wire.write(itoa(x));
+	// transformar x em String e transmitir
+	Wire.write(String(x));
 	// finaliza a transmissão
-  Wire.endTransmission();
+	Wire.endTransmission();
 
-  x++;
-  delay(500);
+	x++;
+	delay(500);
 }
