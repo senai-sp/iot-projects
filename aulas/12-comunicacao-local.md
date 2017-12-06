@@ -65,6 +65,18 @@ O protocolo I2C utiliza os 2 pinos mais próximos do pino `AREF`, no caso do UNO
 
 Este protocolo funciona com uma estrutura Master-Slave, onde uma unidade principal (Master) coordena a comunicação e Slaves operam quando requisitados pelo Master.
 
+Os pinos a serem utilizados por cada modelo são os seguintes:
+
+| Modelo | I2C |
+| ---- | ---- |
+| Uno, Ethernet |A4 (SDA), A5 (SCL) |
+| Mega2560 | 20 (SDA), 21 (SCL) |
+| Leonardo |	2 (SDA), 3 (SCL) |
+| Due | 20 (SDA), 21 (SCL), SDA1, SCL1 |
+
+
+Eles devem ser conectados ao mesmo barramento (SDA com SDA, SCL com SCL)
+
 ## Exemplos
 - [I2C: Escrever a partir do Master](../exercicios/12-comunicacao-local/master-writer/)
 - [I2C: Ler a partir do Master](../exercicios/12-comunicacao-local/master-reader/)
