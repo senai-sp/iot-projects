@@ -14,8 +14,11 @@ void loop() {
 	// Envia os 5 bytes da mensagem
 	Wire.write("x eh ");
 
-	// transformar x em String e transmitir
-	Wire.write(String(x));
+	char numeroX[10];
+
+	// transformar x em char[] e transmitir
+	sprintf(numeroX, "%d", x);
+	Wire.write(numeroX);
 	// finaliza a transmissão
 	Wire.endTransmission();
 
