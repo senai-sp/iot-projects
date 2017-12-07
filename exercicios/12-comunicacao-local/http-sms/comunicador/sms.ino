@@ -15,9 +15,7 @@ HttpClient client = HttpClient(ethclient, "192.168.3.186", 3000);
 
 #define CONTENT_TYPE "application/x-www-form-urlencoded"
 
-#define PARAMETROS                                                     \
-  "sid=" SMS_TWILIO_SID "&token=" SMS_TWILIO_TOKEN "&to=" SMS_PHONE_TO \
-  "&from=" SMS_PHONE_FROM "&body=" SMS_MESSAGE
+#define PARAMETROS "sid=" SMS_TWILIO_SID "&token=" SMS_TWILIO_TOKEN "&to=" SMS_PHONE_TO "&from=" SMS_PHONE_FROM "&body=" SMS_MESSAGE
 
 #define RESPONSE_SIZE 60
 char response[RESPONSE_SIZE] = {};
