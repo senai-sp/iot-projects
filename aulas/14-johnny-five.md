@@ -31,10 +31,10 @@ A seguir, crie um arquivo `index.js` nessa nova pasta com o seguinte código:
 
 ```javascript
 // obter o código da biblioteca
-var five = require("johnny-five");
+const five = require("johnny-five");
 
 // criar uma instância que representa nossa placa
-var board = new five.Board({
+const board = new five.Board({
 	port: "COM*" // substitua pela porta a qual seu Arduino estiver conectado
 });
 
@@ -42,7 +42,7 @@ var board = new five.Board({
 board.on("ready", function() {
 
 	// vincular uma variável do tipo Led que controla o pino 13
-  var led = new five.Led(13);
+  const led = new five.Led(13);
 
 	// piscar o led a cada 500ms
   led.blink(500);
