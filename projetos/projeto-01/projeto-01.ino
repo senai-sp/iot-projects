@@ -12,7 +12,7 @@ void setup()
 
 void loop()
 {
-	mqttLoop();
+  mqttLoop();
   loopPortao();
   loopLuz();
   loopFeedback();
