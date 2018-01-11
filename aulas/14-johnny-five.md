@@ -14,7 +14,7 @@ Com a biblioteca Johhny-Five podemos controlar plataformas de IoT como o Arduino
 
 Para controlarmos o arduino através de um processo NodeJS com Johnny-Five, devemos carregar o programa StandardFirmataPlus, ele contém uma implementação do [protocolo Firmata](https://github.com/firmata/protocol), criado para padronizar o controle de unidades IoT de softwares em computador.
 
-Ele está disponível na galeria padrão de exemplos da IDE do Arduino em `Arquivo > Exemplos > StandardFirmataPlus`.
+Ele está disponível na galeria padrão de exemplos da IDE do Arduino em `Arquivo > Exemplos > Firmata > StandardFirmataPlus`.
 
 ## Criação do projeto com Johnny-Five
 
