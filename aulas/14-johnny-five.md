@@ -24,7 +24,6 @@ Para criar o projeto, crie uma nova pasta, e abra um terminal do `cmd.exe` ou `b
 npm init # inicializa um arquivo package.json com configurações do projeto, como nome do projeto, autor, etc.
 npm install --save johnny-five # adiciona a biblioteca johnny-five ao projeto
 ```
-
 O executável `npm`, ou **N**ode **P**ackage **M**anager, é um programa auxiliar que utilizamos para adicionar dependências a nossos projetos e executar scripts auxiliares, assim como potencialmente publicar nossas próprias bibliotecas.
 
 A seguir, crie um arquivo `index.js` nessa nova pasta com o seguinte código:
@@ -50,6 +49,18 @@ board.on("ready", function() {
 ```
 
 Em seguida rode-o com `node index.js`.
+
+### Troubleshooting
+Caso ocorra algum erro com a instalação das dependências (como falta de um executável python ou compilador c++), execute os seguintes passos:
+
+1. Abra um prompt de comando como administrador
+	1. Vá no menu iniciar
+	2. Digite `Prompt de Comando`
+	3. Clique em `Prompt de Comando` com o botão direito do mouse
+	4. Selecione `Rodar como administrador`
+2. Execute `npm install --global windows-build-tools`
+
+O pacote [windows-build-tools](https://github.com/felixrieseberg/windows-build-tools) tenta baixar e configurar dependências faltantes para compilar alguns módulos do NPM no Windows.
 
 ## Exercício
 
