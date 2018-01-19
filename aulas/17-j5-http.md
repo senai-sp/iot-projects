@@ -2,7 +2,6 @@
 
 Nesta aula vamos servir uma página HTML com botões para interação do usuário e executar ações no Arduino.
 
-
 ## Configurando o projeto
 
 1. Crie o projeto conforme descrito [na aula anterior](./14-johnny-five.md).
