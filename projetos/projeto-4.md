@@ -4,4 +4,4 @@
 
 2. Determinar quantas pessoas entraram e saíram do recinto.
 
-3. Enviar contagem para tópico MQTT.
+3. Enviar contagem para tópico HTTP.
