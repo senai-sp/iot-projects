@@ -9,29 +9,29 @@ let contagemPessoas = 0;
 
 let tinhaObstaculo = false;
 function callback() {
-	let haObstaculo = this.cm >= raioDeteccao;
-	if (
-		// se não há mais obstaculo
-		!haObstaculo
-		// e havia na iteração anterior
-		&& tinhaObstaculo
-	) {
-		// incrementar contador
-		contagemPessoas++;
-	}
+  let haObstaculo = this.cm >= raioDeteccao;
+  if (
+    // se não há mais obstaculo
+    !haObstaculo
+    // e havia na iteração anterior
+    && tinhaObstaculo
+  ) {
+    // incrementar contador
+    contagemPessoas++;
+  }
 
-	console.log(contagemPessoas);
+  console.log(contagemPessoas);
 
-	// tem algum obstaculo em frente
-	tinhaObstaculo = haObstaculo;
+  // tem algum obstaculo em frente
+  tinhaObstaculo = haObstaculo;
 }
 
 placa.on("ready", function() {
-	const portaEntrada = new five.Proximity({
-		pin: 10,
-		controller: "HCSR04",
-		freq: 25 // padrão
-	});
+  const portaEntrada = new five.Proximity({
+    pin: 10,
+    controller: "HCSR04",
+    freq: 25 // padrão
+  });
 
-	portaEntrada.on("data", callback);
+  portaEntrada.on("data", callback);
 });
