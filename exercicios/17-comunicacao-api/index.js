@@ -23,7 +23,7 @@ board.on("ready", function() {
         };
         request.put(endpointUpdateSensor, {
             json: true,
-            body: dados
+            body: JSON.stringify(dados)
         }, function(error, res, body){
             if(error) {
                 console.error(error);
