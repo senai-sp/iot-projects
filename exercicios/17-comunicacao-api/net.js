@@ -24,7 +24,8 @@ function atualizar(id, dados, callback) {
 function obterId(callback) {
     // ler arquivo ./id
     fs.readFile(nomeArquivo, function(error, data) {
-        if(error) {
+        const id = data.toString();
+        if(error || !id) {
             // caso não exista
             // obter id via POST /api/Sensor
             console.log("arquivo não encontrado, realizando POST");
@@ -41,7 +42,6 @@ function obterId(callback) {
         }
         console.log("arquivo encontrado!");
         // caso o arquivo exista, utilizar id lido
-        var id = data.toString();
         callback(null, parseInt(id));
     });
     
