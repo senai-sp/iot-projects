@@ -1,37 +1,34 @@
 const five = require("johnny-five");
 const board = new five.Board({
-    port: "COM11"
+    port: "COM12"
 });
 
-const request = require("request");
-const configuracao = require("./config");
-const id = configuracao.idSensor;
-const api = configuracao.api;
-const endpointUpdateSensor = api + "/api/Sensor/" + id;
+const net = require('./net');
 
 board.on("ready", function() {
+    net.obterId(function(erro, id) {
+        if(erro) {
+            console.error(erro);
+        }
+        // tenho meu id via POST
+        ultrassom.on("data", function() {
+            console.log(this.cm);
+            const cm = Math.floor(this.cm);
+            const dados = {
+                valor: cm
+            };
+            net.atualizar(id, dados, function(error, sensor){
+                if(error) {
+                    console.error(error);
+                    return;
+                }
+                console.log(sensor);
+            });
+        });
+    });
     const ultrassom = new five.Proximity({
-        pin: 10,
+        pin: 6,
         controller: "HCSR04",
         freq: 2000
-    });
-    ultrassom.on("data", function() {
-        console.log(this.cm);
-        const cm = Math.floor(this.cm);
-        const dados = {
-            valor: cm
-        };
-        request.put(endpointUpdateSensor, {
-            json: true,
-            body: JSON.stringify(dados)
-        }, function(error, res, body){
-            if(error) {
-                console.error(error);
-                return;
-            }
-            // erro é nulo, tudo ok
-            console.log(res && res.statusCode);
-            console.log(body);
-        });
     });
 });
