@@ -1,15 +1,16 @@
 #include <RestClient.h>
 #include <UIPEthernet.h>
+#include <Ultrasonic.h>
 
 // Alterar o último valor para o id do seu kit
 const byte mac[] = {0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0x52};
 EthernetClient ethclient;
 
+Ultrasonic ultrasonic(6, 5);
+
 #define CONTENT_TYPE "application/json"
 #define SERVER "192.168.2.185"
 RestClient client = RestClient(SERVER, 8080, ethclient);
-
-#define PIN_ULTRASSOM 6
 
 void setupEthernet() {
   // Connect via DHCP
@@ -24,7 +25,7 @@ void setupEthernet() {
 
 void enviarMedicao() {
   String body = "{\"valor\":";
-  body += analogRead(PIN_ULTRASSOM);
+  body += ultrasonic.distanceRead();
   body += "}";
   Serial.println(body);
 
@@ -44,10 +45,9 @@ void setup() {
 	Serial.println("Hello World!");
   setupEthernet();
 	client.setContentType(CONTENT_TYPE);
-  pinMode(PIN_ULTRASSOM, INPUT);
 }
 
 void loop() {
   enviarMedicao();
-  delay(5000);
+  delay(1000);
 }
