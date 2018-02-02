@@ -6,10 +6,14 @@
 const byte mac[] = {0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0x52};
 EthernetClient ethclient;
 
+// Classe para manipular o componeente de ultrassom.
+// Recebe como parametro as portas de (Trig, Echo)
 Ultrasonic ultrasonic(6, 5);
 
 #define CONTENT_TYPE "application/json"
 #define SERVER "192.168.2.185"
+#define ENDPOINT "/api/Sensor/1003"
+#define TAMANHO_RESPOSTA 100
 RestClient client = RestClient(SERVER, 8080, ethclient);
 
 void setupEthernet() {
@@ -24,14 +28,26 @@ void setupEthernet() {
 }
 
 void enviarMedicao() {
+  // Montando o JSON via concatenação
   String body = "{\"valor\":";
   body += ultrasonic.distanceRead();
   body += "}";
+
   Serial.println(body);
 
-	char resposta[100] = {};
+  // Array com 100 bytes para armazenar o retorno da api
+  // Neste cenário poderíamos ignorar os dados de retorno
+  char resposta[TAMANHO_RESPOSTA] = {};
 
-  int statusCode = client.put("/api/Sensor/1003", body.c_str(), resposta, 50);
+  // A biblioteca retorna o código de status da requisição HTTP
+  int statusCode = client.put(ENDPOINT,
+    // utilizamos o método String#c_str() para obter um *char a partir da classe String do arduino
+    // https://www.arduino.cc/reference/en/language/variables/data-types/string/functions/c_str/
+    body.c_str(),
+    // Passamos a refererência para a array que irá armazenar o texto de retorno da API
+    resposta,
+    // Passamos também o tamanho da array
+    TAMANHO_RESPOSTA);
 
   Serial.print(F("Codigo de resposta: "));
   Serial.println(statusCode);
@@ -42,9 +58,10 @@ void enviarMedicao() {
 
 void setup() {
   Serial.begin(9600);
-	Serial.println("Hello World!");
   setupEthernet();
-	client.setContentType(CONTENT_TYPE);
+  // Precisamos informar que estamos enviando dados no formato JSON
+  // https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Type
+  client.setContentType(CONTENT_TYPE);
 }
 
 void loop() {
