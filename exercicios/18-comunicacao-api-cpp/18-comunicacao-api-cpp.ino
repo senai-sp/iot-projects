@@ -1,3 +1,5 @@
+// Baixar a biblioteca RestClient de https://github.com/paolobueno/arduino-restclient
+// Colocar na pasta ~/Documentos/Arduino/libraries/
 #include <RestClient.h>
 #include <UIPEthernet.h>
 #include <Ultrasonic.h>
