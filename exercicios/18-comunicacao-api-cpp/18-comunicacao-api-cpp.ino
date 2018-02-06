@@ -14,19 +14,45 @@ Ultrasonic ultrasonic(6, 5);
 
 #define CONTENT_TYPE "application/json"
 #define SERVER "192.168.2.185"
-#define ENDPOINT "/api/Sensor/1003"
-#define TAMANHO_RESPOSTA 100
+#define ENDPOINT "/api/Sensor"
+
+#define TAMANHO_RESPOSTA 25
+#define OFFSET_RESPOSTA 10
+
 RestClient client = RestClient(SERVER, 8080, ethclient);
+
+char id[5] = {};
+
+void (*reset)() = NULL;
 
 void setupEthernet() {
   // Connect via DHCP
   if (Ethernet.begin(mac)) {
-    Serial.println("Conectado via DHCP");
-    Serial.print("IP recebido:");
+    Serial.println(F("Conectado via DHCP"));
+    Serial.print(F("IP recebido:"));
     Serial.println(Ethernet.localIP());
   } else {
-    Serial.println("DHCP falhou!");
+    Serial.println(F("DHCP falhou!"));
   }
+
+  char resposta[TAMANHO_RESPOSTA] = {};
+
+	// Obter id via POST /api/Sensor
+	int status = client.put(ENDPOINT, "{}", resposta, TAMANHO_RESPOSTA);
+
+	if(status != 200) {
+		reset();
+	}
+
+	for(int i = 0; i < 4; i++) {
+		id[i] = resposta[OFFSET_RESPOSTA + i];
+	}
+
+	Serial.print(F("Status POST: "));
+	Serial.println(status);
+
+	Serial.print(F("Id obtido POST: "));
+	Serial.println(id);
 }
 
 void enviarMedicao() {
@@ -35,14 +61,16 @@ void enviarMedicao() {
   body += ultrasonic.distanceRead();
   body += "}";
 
-  Serial.println(body);
+	// Concatenar com ID obtido para montar endpoint
+	String endpoint = ENDPOINT;
+	endpoint += id;
 
-  // Array com 100 bytes para armazenar o retorno da api
+  // Array com 25 bytes para armazenar o retorno da api
   // Neste cenário poderíamos ignorar os dados de retorno
   char resposta[TAMANHO_RESPOSTA] = {};
 
   // A biblioteca retorna o código de status da requisição HTTP
-  int statusCode = client.put(ENDPOINT,
+  int statusCode = client.put(endpoint.c_str(),
     // utilizamos o método String#c_str() para obter um *char a partir da classe String do arduino
     // https://www.arduino.cc/reference/en/language/variables/data-types/string/functions/c_str/
     body.c_str(),
@@ -50,6 +78,9 @@ void enviarMedicao() {
     resposta,
     // Passamos também o tamanho da array
     TAMANHO_RESPOSTA);
+
+	// EXTRA: Para ignorar o resultado podemos passar um pointer para NULL tamanho 0:
+	// int status = client.put(ENDPOINT, body.c_str(), NULL, 0);
 
   Serial.print(F("Codigo de resposta: "));
   Serial.println(statusCode);
