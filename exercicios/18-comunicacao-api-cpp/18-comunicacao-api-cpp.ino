@@ -1,5 +1,6 @@
-// Baixar a biblioteca RestClient de https://github.com/paolobueno/arduino-restclient
-// Colocar na pasta ~/Documentos/Arduino/libraries/
+// Baixar a biblioteca RestClient de
+// https://github.com/paolobueno/arduino-restclient Colocar na pasta
+// ~/Documentos/Arduino/libraries/
 #include <RestClient.h>
 #include <UIPEthernet.h>
 #include <Ultrasonic.h>
@@ -21,8 +22,13 @@ Ultrasonic ultrasonic(6, 5);
 
 RestClient client = RestClient(SERVER, 8080, ethclient);
 
+// Utilizamos uma array de 5 chars para ter um espaço extra para finalizar a
+// string. Ex.: para um ID "1234", a array deve ficar com o valor
+// {'1,'2','3','4',NULL} https://en.wikipedia.org/wiki/Null-terminated_string
 char id[5] = {};
 
+// Para resetar o arduino via software, podemos chamar como função o endereço de
+// memória 0
 void (*reset)() = 0;
 
 void setupEthernet() {
@@ -35,24 +41,33 @@ void setupEthernet() {
     Serial.println(F("DHCP falhou!"));
   }
 
+  // Array com 25 bytes para armazenar o retorno da api
   char resposta[TAMANHO_RESPOSTA] = {};
 
-	// Obter id via POST /api/Sensor
-	int status = client.put(ENDPOINT, "{}", resposta, TAMANHO_RESPOSTA);
+  // Obter id via POST /api/Sensor
+  int status = client.put(
+      ENDPOINT,
+      // Enviamos um objeto JSON vazio para honrar o Content-Type
+      // 'application-json'
+      "{}",
+      // Para ignorar o resultdo podemos passar um pointer para NULL tamanho 0:
+      resposta,
+      // Passamos também o tamanho da array
+      TAMANHO_RESPOSTA);
 
-	if(status != 200) {
-		reset();
-	}
+  if (status != 200) {
+    reset();
+  }
 
-	for(int i = 0; i < 4; i++) {
-		id[i] = resposta[OFFSET_RESPOSTA + i];
-	}
+  for (int i = 0; i < 4; i++) {
+    id[i] = resposta[OFFSET_RESPOSTA + i];
+  }
 
-	Serial.print(F("Status POST: "));
-	Serial.println(status);
+  Serial.print(F("Status POST: "));
+  Serial.println(status);
 
-	Serial.print(F("Id obtido POST: "));
-	Serial.println(id);
+  Serial.print(F("Id obtido POST: "));
+  Serial.println(id);
 }
 
 void enviarMedicao() {
@@ -61,26 +76,21 @@ void enviarMedicao() {
   body += ultrasonic.distanceRead();
   body += "}";
 
-	// Concatenar com ID obtido para montar endpoint
-	String endpoint = ENDPOINT;
-	endpoint += id;
-
-  // Array com 25 bytes para armazenar o retorno da api
-  // Neste cenário poderíamos ignorar os dados de retorno
-  char resposta[TAMANHO_RESPOSTA] = {};
+  // Concatenar com ID obtido para montar endpoint
+  String endpoint = ENDPOINT;
+  endpoint += id;
 
   // A biblioteca retorna o código de status da requisição HTTP
-  int statusCode = client.put(endpoint.c_str(),
-    // utilizamos o método String#c_str() para obter um *char a partir da classe String do arduino
-    // https://www.arduino.cc/reference/en/language/variables/data-types/string/functions/c_str/
-    body.c_str(),
-    // Passamos a refererência para a array que irá armazenar o texto de retorno da API
-    resposta,
-    // Passamos também o tamanho da array
-    TAMANHO_RESPOSTA);
+  int statusCode = client.put(
+      endpoint.c_str(),
+      // utilizamos o método String#c_str() para obter um *char a partir da
+      // classe String do arduino
+      // https://www.arduino.cc/reference/en/language/variables/data-types/string/functions/c_str/
+      body.c_str(),
+      // Para ignorar o resultado podemos passar um pointer para NULL e tamanho 0:
+      NULL, 0);
 
-	// EXTRA: Para ignorar o resultado podemos passar um pointer para NULL tamanho 0:
-	// int status = client.put(ENDPOINT, body.c_str(), NULL, 0);
+  // int status = client.put(ENDPOINT, body.c_str(), NULL, 0);
 
   Serial.print(F("Codigo de resposta: "));
   Serial.println(statusCode);
