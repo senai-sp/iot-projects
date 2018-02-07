@@ -45,7 +45,7 @@ void setupEthernet() {
   char resposta[TAMANHO_RESPOSTA] = {};
 
   // Obter id via POST /api/Sensor
-  int status = client.put(
+  int status = client.post(
       ENDPOINT,
       // Enviamos um objeto JSON vazio para honrar o Content-Type
       // 'application-json'
