@@ -94,9 +94,6 @@ void enviarMedicao() {
 
   Serial.print(F("Codigo de resposta: "));
   Serial.println(statusCode);
-
-  Serial.print(F("Texto de resposta: "));
-  Serial.println(resposta);
 }
 
 void setup() {
