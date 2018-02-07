@@ -4,6 +4,7 @@
 #include <RestClient.h>
 #include <UIPEthernet.h>
 #include <Ultrasonic.h>
+#include <EEPROM.h>
 
 // Alterar o último valor para o id do seu kit
 const byte mac[] = {0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0x52};
@@ -22,10 +23,13 @@ Ultrasonic ultrasonic(6, 5);
 
 RestClient client = RestClient(SERVER, 8080, ethclient);
 
+
+#define TAMANHO_ID 4
+
 // Utilizamos uma array de 5 chars para ter um espaço extra para finalizar a
 // string. Ex.: para um ID "1234", a array deve ficar com o valor
 // {'1,'2','3','4',NULL} https://en.wikipedia.org/wiki/Null-terminated_string
-char id[5] = {};
+char id[TAMANHO_ID + 1] = {};
 
 // Para resetar o arduino via software, podemos chamar como função o endereço de
 // memória 0
@@ -40,34 +44,50 @@ void setupEthernet() {
   } else {
     Serial.println(F("DHCP falhou!"));
   }
+  preencherId();
+}
 
-  // Array com 25 bytes para armazenar o retorno da api
-  char resposta[TAMANHO_RESPOSTA] = {};
+void preencherId() {
+  // se houver um valor non-0 no início da EEPROM...
+  if (EEPROM.read(0)) {
+    // assumimos que é nosso id e lemos
+    for (int i = 0; i < TAMANHO_ID; i++) {
+      id[i] = EEPROM.read(i);
+    }
+    Serial.print(F("Id lido da EEPROM:"));
+    Serial.println(id);
+  } else {
+    // senão o obtemos via POST
 
-  // Obter id via POST /api/Sensor
-  int status = client.post(
-      ENDPOINT,
-      // Enviamos um objeto JSON vazio para honrar o Content-Type
-      // 'application-json'
-      "{}",
-      // Para ignorar o resultdo podemos passar um pointer para NULL tamanho 0:
-      resposta,
-      // Passamos também o tamanho da array
-      TAMANHO_RESPOSTA);
+    // Array com 25 bytes para armazenar o retorno da api
+    char resposta[TAMANHO_RESPOSTA] = {};
 
-  if (status != 200) {
-    reset();
+    // Obter id via POST /api/Sensor
+    int status =
+        client.post(ENDPOINT,
+                    // Enviamos um objeto JSON vazio para honrar o Content-Type
+                    // 'application-json'
+                    "{}",
+                    // Para ignorar o resultdo podemos passar um pointer para
+                    // NULL tamanho 0:
+                    resposta,
+                    // Passamos também o tamanho da array
+                    TAMANHO_RESPOSTA);
+
+    if (status != 200) {
+      reset();
+    }
+
+    for (int i = 0; i < TAMANHO_ID; i++) {
+      id[i] = resposta[OFFSET_RESPOSTA + i];
+    }
+
+    Serial.print(F("Status POST: "));
+    Serial.println(status);
+
+    Serial.print(F("Id obtido POST: "));
+    Serial.println(id);
   }
-
-  for (int i = 0; i < 4; i++) {
-    id[i] = resposta[OFFSET_RESPOSTA + i];
-  }
-
-  Serial.print(F("Status POST: "));
-  Serial.println(status);
-
-  Serial.print(F("Id obtido POST: "));
-  Serial.println(id);
 }
 
 void enviarMedicao() {
@@ -87,7 +107,8 @@ void enviarMedicao() {
       // classe String do arduino
       // https://www.arduino.cc/reference/en/language/variables/data-types/string/functions/c_str/
       body.c_str(),
-      // Para ignorar o resultado podemos passar um pointer para NULL e tamanho 0:
+      // Para ignorar o resultado podemos passar um pointer para NULL e tamanho
+      // 0:
       NULL, 0);
 
   // int status = client.put(ENDPOINT, body.c_str(), NULL, 0);
