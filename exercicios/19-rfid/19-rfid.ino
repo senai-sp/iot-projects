@@ -1,6 +1,11 @@
-#include <SoftwareSerial.h>
+#include <UIPEthernet.h>
+#include <RestClient.h>
+byte mac[] = { 0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0x52 };
 
-const char *cartaoCorreto = "410033ADD00F";
+EthernetClient internet;
+RestClient client("192.168.2.185", 3000, internet);
+
+#include <SoftwareSerial.h>
 
 #define TAMANHO_CARTAO 12
 
@@ -15,6 +20,15 @@ SoftwareSerial portaRFID(2, 3); // RX, TX
 void setup() {
   Serial.begin(9600);
   portaRFID.begin(9600);
+
+  Serial.println("Inicio");
+
+  // inicializar ethernet
+  if(Ethernet.begin(mac)) {
+    Serial.println(Ethernet.localIP());
+  } else {
+    Serial.println(F("Ethernet falhou!"));
+  }
 }
 
 void loop() {
@@ -37,16 +51,28 @@ void loop() {
   
   if(estavaLendoCartao && !lendoCartao) {
     // verificar se o cartao lido é o correto
-    if(comparar(cartao, cartaoCorreto, TAMANHO_CARTAO)) {
+    if(devoAbrirPortao()) {
       // abrir/fechar servo (toggle)
       Serial.println("Abrir portao");
     } else {
       // tocar buzzer
-      Serial.println("403");
+      Serial.println("Não abrir portao");
     }
   }
   
   estavaLendoCartao = lendoCartao;
+}
+
+bool devoAbrirPortao() {
+  // return comparar(cartao, cartaoCorreto, TAMANHO_CARTAO);
+  String endpoint = "/usuario/";
+  endpoint += cartao;
+  int status = client.get(endpoint.c_str(), NULL, 0);
+  Serial.print(F("Status GET:"));
+  Serial.println(status);
+
+  // o usuario pode entrar se foi encontrado na API
+  return status == 200;
 }
 
 // Funcao que retorna se 2 arrays de chars são iguais
